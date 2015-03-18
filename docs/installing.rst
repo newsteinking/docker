@@ -1,10 +1,10 @@
 .. _`Installation`:
 
-Installation
+2. Installation
 ==============
 
-2.1.1 docker default directory
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.1 docker default directory
+-----------------------------------
 
 .
 
@@ -12,6 +12,7 @@ Installation
 
 
 In CentOS 6.5
+~~~~~~~~~~~~~~~~
 
 ::
 
@@ -34,8 +35,8 @@ then save the file and start docker again
 
 and will make repository file in /data/docker
 
-2.1.2 Kernel Upgrade 2.6->3.8
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.2 Kernel Upgrade 2.6->3.8
+-----------------------------------
 
 
 ::
@@ -45,8 +46,8 @@ and will make repository file in /data/docker
 
 
 .
-2.1.3 docker start error
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.3 docker start error
+-----------------------------------
 
 
 ::
@@ -64,8 +65,8 @@ and will make repository file in /data/docker
 
 
 .
-2.1.3 Build your own image from CentOS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.4  Build your own image from CentOS
+---------------------------------------
 
 
 
@@ -124,8 +125,8 @@ docker push xx.xx.xx.xx:5000/centos
 
 .
 
-2.1.4 Docker bash alias
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.5  Docker bash alias
+-----------------------------------
 #Docker
 #Remove non-tagged images
 function docker-rmi-none() {
@@ -185,8 +186,8 @@ $ sudo docker rmi -f $(docker images -q)
 
 
 
-2.1.5 gunicorn error
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.6  gunicorn error
+-----------------------------------
 
 yum erase python-pip
 
@@ -213,8 +214,8 @@ wget https://pypi.python.org/packages/source/p/pip/pip-1.2.1.tar.gz
 *install gunicorn
 pip install gunicorn
 
-2.1.6 make a private registry
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.7  make a private registry
+-----------------------------------
 ref  :https://blog.codecentric.de/en/2014/02/docker-registry-run-private-docker-image-repository/
 
 https://github.com/lukaspustina/docker-registry-demo
@@ -377,7 +378,8 @@ curl -X GET http://10.3.0.115:5000/v1/search
 docker search 10.3.0.115:5000/library
 
 
-2.1.7 Basic certification
+2.8  Basic certification
+-----------------------------------
 
 /etc/hosts
 

@@ -2,7 +2,7 @@
 ==============
 
 1.1 Linux
-****************
+-------------------
 
 Automatic Install Script
 
@@ -68,7 +68,7 @@ auto execution during boot
     $ sudo chkconfig docker on
 
 1.2 Mac OS X
-****************
+-------------------
 
 
 
@@ -78,7 +78,7 @@ Boot2Docker-1.x.x.pkg
 
 
 1.3  windows
-***************
+-------------------
 
 
 https://github.com/boot2docker/windows-installer/releases52
