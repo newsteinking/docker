@@ -41,8 +41,9 @@ RedHat Enterprise Linux, CentOS
 
 CentOS 6
 
+::
 
-::$ sudo yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+    $ sudo yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
     $ sudo yum install docker-io
 
 
@@ -82,4 +83,4 @@ Boot2Docker-1.x.x.pkg
 
 https://github.com/boot2docker/windows-installer/releases52
 
- docker-install.exe
+docker-install.exe
