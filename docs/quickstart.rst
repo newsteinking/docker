@@ -18,6 +18,8 @@ hello-world 이미지는 사용하지 않을 것이므로 모두 삭제합니다
 
     $ sudo docker rm `sudo docker ps -aq`
     $ sudo docker rmi hello-world
+
+
 .
 
 
