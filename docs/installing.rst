@@ -391,7 +391,7 @@ client에도 server.crt 를 복사하여 3가지 실행
 
 yum install httpd-tools
 
-...continue
+
 
 
 2.1.2 CentOS 7.0
