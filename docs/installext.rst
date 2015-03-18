@@ -1,10 +1,13 @@
 .. _`Installation`:
 
-Installation
-============
+2. Docker Extension
+=====================
 
-2.1.1 docker default directory 변경
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+2.1 docker default directory 변경
+---------------------------------
+
+
 
 예외적 조건들....
 
@@ -34,8 +37,8 @@ then save the file and start docker again
 
 and will make repository file in /data/docker
 
-2.1.2 Kernel Upgrade 2.6->3.8
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.2 Kernel Upgrade 2.6->3.8
+------------------------------------
 
 
 ::
@@ -45,8 +48,8 @@ and will make repository file in /data/docker
 
 
 .
-2.1.3 docker start error
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.3 docker start error
+--------------------------
 
 
 ::
@@ -64,8 +67,8 @@ and will make repository file in /data/docker
 
 
 .
-2.1.3 Build your own image from CentOS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.4  Build your own image from CentOS
+------------------------------------------
 
 
 
@@ -121,8 +124,8 @@ docker push xx.xx.xx.xx:5000/centos
 
 .
 
-2.1.4 Docker bash alias
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.5  Docker bash alias
+-----------------------------
 #Docker
 #Remove non-tagged images
 function docker-rmi-none() {
@@ -182,8 +185,8 @@ $ sudo docker rmi -f $(docker images -q)
 
 
 
-2.1.5 gunicorn error
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.6  gunicorn error
+---------------------------
 
 yum erase python-pip
 
@@ -210,8 +213,8 @@ wget https://pypi.python.org/packages/source/p/pip/pip-1.2.1.tar.gz
 *install gunicorn
 pip install gunicorn
 
-2.1.6 make a private registry
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.7  make a private registry
+-------------------------------------
 참고 :https://blog.codecentric.de/en/2014/02/docker-registry-run-private-docker-image-repository/
 
 https://github.com/lukaspustina/docker-registry-demo
@@ -367,8 +370,8 @@ curl -X GET http://10.3.0.115:5000/v1/search
 docker search 10.3.0.115:5000/library
 
 
-2.1.7 기본 인증
-
+2.8 기본 인증
+--------------------------
 /etc/hosts
 
 127.0.0.1       localhost
@@ -394,17 +397,8 @@ yum install httpd-tools
 ...continue
 
 
-2.1.2 CentOS 7.0
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.9
+---------------------------
 
-
-
-2.1.3 Ubuntu 14.04
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-2.1.4 CentOS 7.0
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-2.1.5 CentOS 7.0
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.10
+----------------------------
