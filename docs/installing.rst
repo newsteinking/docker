@@ -215,7 +215,7 @@ pip install gunicorn
 
 2.1.6 make a private registry
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-참고 :https://blog.codecentric.de/en/2014/02/docker-registry-run-private-docker-image-repository/
+ref  :https://blog.codecentric.de/en/2014/02/docker-registry-run-private-docker-image-repository/
 
 https://github.com/lukaspustina/docker-registry-demo
 
