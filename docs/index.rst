@@ -1,7 +1,7 @@
 docker
 ==========
 
-    Docker에 대한 기본 설치 및 활용법
+    Docker Basic
 
 
                       written by sean
@@ -15,8 +15,7 @@ docker
 .. toctree::
    :maxdepth: 3
 
-   quickstart
-   installext
+   quickstar
    installing
    user_guide
    reference/index
