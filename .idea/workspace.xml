@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4fd254a3-8dc8-44be-b982-c1de39ee8d44" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/installing.rst" afterPath="$PROJECT_DIR$/docs/installing.rst" />
-    </list>
+    <list default="true" id="4fd254a3-8dc8-44be-b982-c1de39ee8d44" name="Default" comment="" />
     <ignored path="docker.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,31 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.rst" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.rst" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docs/index.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="682">
-              <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="quickstart.rst" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/quickstart.rst">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1159" max-vertical-offset="2024">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="installing.rst" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/docs/installing.rst">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44046244" vertical-offset="8265" max-vertical-offset="9130">
-              <caret line="393" column="0" selection-start-line="393" selection-start-column="0" selection-end-line="393" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.4069364" vertical-offset="0" max-vertical-offset="865">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -505,26 +483,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/index.rst">
+    <entry file="file://$PROJECT_DIR$/docs/installing.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="682">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.18612717" vertical-offset="8265" max-vertical-offset="9130">
+          <caret line="383" column="17" selection-start-line="383" selection-start-column="17" selection-end-line="383" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/quickstart.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1159" max-vertical-offset="2024">
+        <state vertical-scroll-proportion="-0.80578035" vertical-offset="1159" max-vertical-offset="2024">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/installing.rst">
+    <entry file="file://$PROJECT_DIR$/docs/index.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44046244" vertical-offset="8265" max-vertical-offset="9130">
-          <caret line="393" column="0" selection-start-line="393" selection-start-column="0" selection-end-line="393" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.4069364" vertical-offset="0" max-vertical-offset="865">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
