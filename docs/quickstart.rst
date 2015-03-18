@@ -81,7 +81,7 @@ https://github.com/boot2docker/osx-installer/releases13에서 Boot2Docker-1.x.x.
 
 
 1.3  윈도우
------------
+----------------
 윈도우에서는 Boot2Docker를 이용하여 Docker를 사용할 수 있습니다.
 
 https://github.com/boot2docker/windows-installer/releases52에서 docker-install.exe를 받은 뒤 설치합니다.
