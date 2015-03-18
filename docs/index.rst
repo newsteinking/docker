@@ -15,7 +15,7 @@ docker
 .. toctree::
    :maxdepth: 3
 
-   quickstart2
+   quickstart
    installing
    user_guide
    reference/index

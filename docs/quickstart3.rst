@@ -2,7 +2,7 @@
 ==============
 
 1.1 리눅스
-****************
+---------------
 
 자동 설치 스크립트
 
@@ -22,7 +22,7 @@ hello-world 이미지는 사용하지 않을 것이므로 모두 삭제합니다
 
 
 우분투
-
+~~~~~~~~~~
 
 자동 설치 스크립트를 사용하지 않고 우분투에서 패키지로 직접 설치하는 방법입니다.
 
@@ -42,7 +42,7 @@ RedHat Enterprise Linux, CentOS
  사용할 수 있도록 설정합니다.
 
 CentOS 6
-
+~~~~~~~~~~~
 
 ::$ sudo yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
     $ sudo yum install docker-io
@@ -52,8 +52,7 @@ AWS EC2에 설치되는 Amazon Linux(CentOS 기반)는 EPEL 저장소를 바로 
 CentOS 7에서는 docker 패키지를 설치하면 됩니다.
 
 CentOS 7
-
-
+~~~~~~~~~
 ::
 
     $ sudo yum install docker
@@ -69,8 +68,7 @@ Docker 서비스 실행
     $ sudo chkconfig docker on
 
 1.2 Mac OS X
-****************
-
+-----------------
 맥에서는 Boot2Docker를 이용하여 Docker를 사용할 수 있습니다.
 
 https://github.com/boot2docker/osx-installer/releases13에서 Boot2Docker-1.x.x.pkg를 받은 뒤 설치합니다.
@@ -83,7 +81,7 @@ https://github.com/boot2docker/osx-installer/releases13에서 Boot2Docker-1.x.x.
 
 
 1.3  윈도우
-***************
+----------------
 윈도우에서는 Boot2Docker를 이용하여 Docker를 사용할 수 있습니다.
 
 https://github.com/boot2docker/windows-installer/releases52에서 docker-install.exe를 받은 뒤 설치합니다.
