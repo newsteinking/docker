@@ -1,5 +1,6 @@
 .. _`LinuxCMD`:
-chapter 2 Linux Command
+
+chapter 2 :Linux Command
 ============================
 
 2.1 Basic

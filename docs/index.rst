@@ -19,12 +19,5 @@ docker
    chapter1
    chapter2
 
- ..  quickstart
- ..  installing
- ..  linuxcmd
- ..  user_guide
-  ..  reference/index
-  ..   development
-  .. news
 
 
