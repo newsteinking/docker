@@ -46,6 +46,8 @@ and will make repository file in /data/docker
 
 
 .
+
+
 2.3 docker start error
 -----------------------------------
 
@@ -65,6 +67,8 @@ and will make repository file in /data/docker
 
 
 .
+
+
 2.4  Build your own image from CentOS
 ---------------------------------------
 
@@ -112,6 +116,7 @@ extract ubuntu.tar and jump to lagest directory and will see layer.tar
 
 
 * local repository push
+
 docker push xx.xx.xx.xx:5000/centos
 
 * local repository search
@@ -128,61 +133,73 @@ docker push xx.xx.xx.xx:5000/centos
 2.5  Docker bash alias
 -----------------------------------
 #Docker
-#Remove non-tagged images
-function docker-rmi-none() {
+::
+
+    #Remove non-tagged images
+    function docker-rmi-none() {
     docker rmi $(docker images | grep none | awk '{print $3}');
-}
+    }
 
-#Remove all containers
-function docker-rm-all() {
+    #Remove all containers
+    function docker-rm-all() {
     docker rm $(docker ps -aq)
-}
+    }
 
-#Docker run image ($1) with default (bash) or specific command
-function dr() {
+    #Docker run image ($1) with default (bash) or specific command
+    function dr() {
     cmd="bash"
 
     [ $# -eq 2 ] && cmd=$2
     echo "docker run -it --rm $1 $cmd"
     docker run --name tmp$(( $(docker ps | wc -l) - 1))  -it --rm $1 $cmd
-}
+    }
 
-#Load saved Docker image (from full path or default dir)
-function dl() {
+    #Load saved Docker image (from full path or default dir)
+    function dl() {
     local path=$1
     [[ "${path}" =~ ^.*/.*$ ]] || path="${HOME}/devel/brew/"${path}
 
     docker load -i ${path}
-}
+    }
 
-#Docker exec $cmd (defaul: bash) in $container (default: first container in docker ps)
-function de() {
+    #Docker exec $cmd (defaul: bash) in $container (default: first container in docker ps)
+    function de() {
     local cmd=bash
     local container=$1
     [ -z "$1" ] && container=$(docker ps | tail -1 | awk '{print $1}')
     [ "$container" == "CONTAINER" ] && >&2 echo "No running container" && return 0
     [ $# -ge 2 ] && shift && cmd=$@
     docker exec -it $container $cmd
-}
+    }
 
-#Get IP of $container (default: first container in docker ps)
-function di() {
+    #Get IP of $container (default: first container in docker ps)
+    function di() {
     local container=$1
     [ -z "$1" ] && container=$(docker ps | tail -1 | awk '{print $1}')
     [ "$container" == "CONTAINER" ] && >&2 echo "No running container" && return 0
     docker inspect $container | jq -r .[0].NetworkSettings.IPAddress
-}
+    }
+
+2.5.1 docker images
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 *(none) image delete
-docker rmi $(docker images -f dangling=true | awk '{ print $3 }' | grep -v IMAGE)
+::
+
+    $ docker rmi $(docker images -f dangling=true | awk '{ print $3 }' | grep -v IMAGE)
 
 *all container delete
+::
 
-$ sudo docker rm $(docker ps -a -q)
+    $ sudo docker rm $(docker ps -a -q)
 
 *all image delete
 
-$ sudo docker rmi -f $(docker images -q)
+::
 
+    $ sudo docker rmi -f $(docker images -q)
+
+.
 
 
 
@@ -279,12 +296,14 @@ proxy setting
 
 /Dockerfile
 
-ENV http_proxy 'http://10.3.0.172:8080'
-ENV https_proxy 'http://10.3.0.172:8080'
-ENV HTTP_PROXY 'http://10.3.0.172:8080'
-ENV HTTPS_PROXY 'http://10.3.0.172:8080'
-RUN export http_proxy=$HTTP_PROXY
-RUN export https_proxy=$HTTPS_PROXY
+::
+
+    ENV http_proxy 'http://10.3.0.172:8080'
+    ENV https_proxy 'http://10.3.0.172:8080'
+    ENV HTTP_PROXY 'http://10.3.0.172:8080'
+    ENV HTTPS_PROXY 'http://10.3.0.172:8080'
+    RUN export http_proxy=$HTTP_PROXY
+    RUN export https_proxy=$HTTPS_PROXY
 
 
 * pip error
@@ -299,16 +318,19 @@ RUN export https_proxy=$HTTPS_PROXY
 
 
 * pin reinstall
-[root@annmoon-linux ~]# wget https://pypi.python.org/packages/source/p/pip/pip-1.2.1.tar.gz
-[root@annmoon-linux ~]# tar xvfz pip-1.2.1.tar.gz
-[root@annmoon-linux ~]# cd pip-1.2.1
-[root@annmoon-linux ~]# python setup.py install
+
+::
+
+    [root@annmoon-linux ~]# wget https://pypi.python.org/packages/source/p/pip/pip-1.2.1.tar.gz
+    [root@annmoon-linux ~]# tar xvfz pip-1.2.1.tar.gz
+    [root@annmoon-linux ~]# cd pip-1.2.1
+    [root@annmoon-linux ~]# python setup.py install
 
 
-pip install --proxy http://user:password@proxyserver:port TwitterApi
+    pip install --proxy http://user:password@proxyserver:port TwitterApi
 
-pip install --proxy="user:password@server:port" packagename
-pip install --proxy="sean:news2816@10.3.0.172:8080"
+    pip install --proxy="user:password@server:port" packagename
+    pip install --proxy="sean:news2816@10.3.0.172:8080"
 
 python setup.py install
 
@@ -404,3 +426,9 @@ in client, copy server.crt and execute 3
 
 
 yum install httpd-tools
+
+
+2.9  docker images
+-----------------------------------
+
+

@@ -17,6 +17,7 @@ docker
 
    quickstart
    installing
+   linuxcmd
    user_guide
    reference/index
    development
