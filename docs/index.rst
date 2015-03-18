@@ -15,12 +15,16 @@ docker
 .. toctree::
    :maxdepth: 3
 
-   quickstart
-   installing
-   linuxcmd
-   user_guide
-   reference/index
-   development
-   news
+   chapter0
+   chapter1
+   chapter2
+
+ ..  quickstart
+ ..  installing
+ ..  linuxcmd
+ ..  user_guide
+  ..  reference/index
+  ..   development
+  .. news
 
 

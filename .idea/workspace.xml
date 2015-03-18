@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fd254a3-8dc8-44be-b982-c1de39ee8d44" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/linuxcmd.rst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/chapter0.rst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/chapter1.rst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/chapter2.rst" />
+      <change type="DELETED" beforePath="D:\AndroDev\workspace_billion\sean_online_github_docker\docker\docker\docs\quickstart2.rst" afterPath="" />
+      <change type="DELETED" beforePath="D:\AndroDev\workspace_billion\sean_online_github_docker\docker\docker\docs\quickstart3.rst" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index.rst" afterPath="$PROJECT_DIR$/docs/index.rst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/installing.rst" afterPath="$PROJECT_DIR$/docs/installing.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/linuxcmd.rst" afterPath="$PROJECT_DIR$/docs/linuxcmd.rst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="docker.iws" />
@@ -31,38 +36,38 @@
       <file leaf-file-name="index.rst" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/index.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="704">
-              <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="792">
+              <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="quickstart.rst" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/quickstart.rst">
+      <file leaf-file-name="chapter0.rst" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docs/chapter0.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1273" max-vertical-offset="2002">
-              <caret line="80" column="19" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.09053498" vertical-offset="0" max-vertical-offset="748">
+              <caret line="3" column="50" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="installing.rst" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/installing.rst">
+      <file leaf-file-name="chapter1.rst" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docs/chapter1.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="8489" max-vertical-offset="9680">
-              <caret line="399" column="37" selection-start-line="399" selection-start-column="37" selection-end-line="399" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="10931" max-vertical-offset="11660">
+              <caret line="522" column="6" selection-start-line="522" selection-start-column="6" selection-end-line="522" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="linuxcmd.rst" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/docs/linuxcmd.rst">
+      <file leaf-file-name="chapter2.rst" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docs/chapter2.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7887517" vertical-offset="3187" max-vertical-offset="3982">
-              <caret line="171" column="45" selection-start-line="171" selection-start-column="45" selection-end-line="171" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3297" max-vertical-offset="4026">
+              <caret line="151" column="2" selection-start-line="151" selection-start-column="2" selection-end-line="151" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -92,9 +97,12 @@
         <option value="$PROJECT_DIR$/docs/installext.rst" />
         <option value="$PROJECT_DIR$/docs/quickstart2.rst" />
         <option value="$PROJECT_DIR$/docs/quickstart.rst" />
-        <option value="$PROJECT_DIR$/docs/installing.rst" />
-        <option value="$PROJECT_DIR$/docs/index.rst" />
         <option value="$PROJECT_DIR$/docs/linuxcmd.rst" />
+        <option value="$PROJECT_DIR$/docs/installing.rst" />
+        <option value="$PROJECT_DIR$/docs/chapter1.rst" />
+        <option value="$PROJECT_DIR$/docs/index.rst" />
+        <option value="$PROJECT_DIR$/docs/chapter2.rst" />
+        <option value="$PROJECT_DIR$/docs/chapter0.rst" />
       </list>
     </option>
   </component>
@@ -168,7 +176,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../sean_online_github_linuxpro2/linuxpro" />
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
@@ -535,18 +543,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/quickstart3.rst">
+    <entry file="file://$PROJECT_DIR$/docs/linuxcmd.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1071" max-vertical-offset="2024">
-          <caret line="54" column="9" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1801" max-vertical-offset="4026">
+          <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/quickstart2.rst">
+    <entry file="file://$PROJECT_DIR$/docs/installing.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="707" max-vertical-offset="1364">
-          <caret line="56" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="8929" max-vertical-offset="9746">
+          <caret line="435" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="435" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -554,31 +562,39 @@
     <entry file="file://$PROJECT_DIR$/docs/quickstart.rst">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1273" max-vertical-offset="2002">
-          <caret line="80" column="19" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/installing.rst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="8489" max-vertical-offset="9680">
-          <caret line="399" column="37" selection-start-line="399" selection-start-column="37" selection-end-line="399" selection-end-column="37" />
+          <caret line="63" column="26" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/index.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="704">
-          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="792">
+          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/linuxcmd.rst">
+    <entry file="file://$PROJECT_DIR$/docs/chapter1.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7887517" vertical-offset="3187" max-vertical-offset="3982">
-          <caret line="171" column="45" selection-start-line="171" selection-start-column="45" selection-end-line="171" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="10931" max-vertical-offset="11660">
+          <caret line="522" column="6" selection-start-line="522" selection-start-column="6" selection-end-line="522" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/chapter2.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3297" max-vertical-offset="4026">
+          <caret line="151" column="2" selection-start-line="151" selection-start-column="2" selection-end-line="151" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/chapter0.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09053498" vertical-offset="0" max-vertical-offset="748">
+          <caret line="3" column="50" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
           <folding />
         </state>
       </provider>

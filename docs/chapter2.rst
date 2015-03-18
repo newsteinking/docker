@@ -1,11 +1,11 @@
 .. _`LinuxCMD`:
-3 Linux Command
-====================
+chapter 2 Linux Command
+============================
 
-1. Basic
+2.1 Basic
 ------------------------
 
-1.1 Directory Size
+2.1.1 Directory Size
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   display directory size
@@ -15,7 +15,7 @@
     $ du -hs  [directory name]
 
 
-1.2 manual core dump
+2.1.2 manual core dump
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
@@ -27,7 +27,7 @@ core dump make in following
 /var/crash/xxx/vmcore
 
 
-1.3 grub
+2.1.3 grub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 change kernel booting sequence
@@ -38,7 +38,7 @@ change kernel booting sequence
 
 
 
-1.4 crash
+2.1.4 crash
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
@@ -62,25 +62,25 @@ change kernel booting sequence
     files -
 
 
-1.5 Directory Size
+2.1.5 Directory Size
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
-1.6 Directory Size
+2.1.6 Directory Size
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
-1.7 Directory Size
+2.1.7 Directory Size
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
-2. Package Install
+2.2 Package Install
 --------------------------------
 
-2.1  kernel debug info
+2.2.1  kernel debug info
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 kernel debugging infor
@@ -93,7 +93,7 @@ kernel debugging infor
 /usr/lib/debug/lib/modules/'uname -r'/vmlinux
 
 
-2.2  ELREPO  add
+2.2.2  ELREPO  add
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 kernel debugging info install
@@ -122,7 +122,7 @@ To install ELRepo for RHEL-5, SL-5 or CentOS-5:
 
 
 
-2.3  CentOS Desktop & X windows
+2.2.3  CentOS Desktop & X windows
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -132,7 +132,7 @@ To install ELRepo for RHEL-5, SL-5 or CentOS-5:
     $yum -groupinstall "Desktop" "Desktop Platform" "X window system" "Fonts"
 
 
-2.4  CentOS Development
+2.2.4  CentOS Development
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CentOS basic development install
@@ -149,7 +149,7 @@ CentOS basic development install
 
 
 
-2.5  HTTP Tunneling
+2.2.5  HTTP Tunneling
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 install package

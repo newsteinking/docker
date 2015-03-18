@@ -1,10 +1,99 @@
-.. _`Installation`:
+1. Docker
+==================
 
-2. Installation
-==============
 
-2.1 docker default directory
------------------------------------
+1.1 Basic
+-------------------
+
+1.1.1 Linux
+~~~~~~~~~~~~~~~~
+
+Automatic Install Script
+
+
+::
+
+    $ sudo wget -qO- https://get.docker.com/ | sh
+
+remove hell-world
+
+::
+
+    $ sudo docker rm `sudo docker ps -aq`
+    $ sudo docker rmi hello-world
+
+
+.
+
+
+Ubuntu
+
+
+Manual install for Ubuntu4.04
+
+::
+
+    $ sudo apt-get update
+    $ sudo apt-get install docker.io
+    $ sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
+
+
+
+RedHat Enterprise Linux, CentOS
+
+
+
+CentOS 6
+
+::
+
+    $ sudo yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+    $ sudo yum install docker-io
+
+
+
+CentOS 7
+
+
+::
+
+    $ sudo yum install docker
+
+Docker service execution
+
+::
+
+    $ sudo service docker start
+
+auto execution during boot
+
+::
+
+    $ sudo chkconfig docker on
+
+1.1.2 Mac OS X
+~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+https://github.com/boot2docker/osx-installer/releases13
+Boot2Docker-1.x.x.pkg
+
+
+
+1.1.3  windows
+~~~~~~~~~~~~~~~~~~~~
+
+
+https://github.com/boot2docker/windows-installer/releases52
+
+docker-install.exe
+
+1.2 Installation
+------------------------------
+
+1.2.1 docker default directory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .
 
@@ -12,7 +101,7 @@
 
 
 In CentOS 6.5
-~~~~~~~~~~~~~~~~
+
 
 ::
 
@@ -35,8 +124,8 @@ then save the file and start docker again
 
 and will make repository file in /data/docker
 
-2.2 Kernel Upgrade 2.6->3.8
------------------------------------
+1.2.2 Kernel Upgrade 2.6->3.8
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 ::
@@ -48,8 +137,8 @@ and will make repository file in /data/docker
 .
 
 
-2.3 docker start error
------------------------------------
+1.2.3 docker start error
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 ::
@@ -69,8 +158,8 @@ and will make repository file in /data/docker
 .
 
 
-2.4  Build your own image from CentOS
----------------------------------------
+1.2.4  Build your own image from CentOS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
@@ -130,8 +219,8 @@ docker push xx.xx.xx.xx:5000/centos
 
 .
 
-2.5  Docker bash alias
------------------------------------
+1.2.5  Docker bash alias
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #Docker
 ::
 
@@ -180,7 +269,7 @@ docker push xx.xx.xx.xx:5000/centos
     docker inspect $container | jq -r .[0].NetworkSettings.IPAddress
     }
 
-2.5.1 docker images
+1.2.6 docker images delete
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *(none) image delete
@@ -203,8 +292,8 @@ docker push xx.xx.xx.xx:5000/centos
 
 
 
-2.6  gunicorn error
------------------------------------
+1.2.7  gunicorn error
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 yum erase python-pip
 
@@ -231,8 +320,8 @@ wget https://pypi.python.org/packages/source/p/pip/pip-1.2.1.tar.gz
 *install gunicorn
 pip install gunicorn
 
-2.7  make a private registry
------------------------------------
+1.2.8  make a private registry
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ref  :https://blog.codecentric.de/en/2014/02/docker-registry-run-private-docker-image-repository/
 
 https://github.com/lukaspustina/docker-registry-demo
@@ -403,8 +492,8 @@ docker search 10.3.0.115:5000/library
 * netstat
 netstat -tulpn
 
-2.8  Basic certification
------------------------------------
+1.2.9  Basic certification
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 /etc/hosts
 
@@ -431,7 +520,5 @@ in client, copy server.crt and execute 3
 yum install httpd-tools
 
 
-2.9  docker images
+1.2.10  docker images
 -----------------------------------
-
-
