@@ -57,20 +57,20 @@ package_data = {}
 
 
 if NO_VENDOR:
-    find_excludes += ["pip._vendor", "pip._vendor.*"]
-    py_modules += ["pip._vendor.__init__"]
+    find_excludes += ["docker._vendor", "docker._vendor.*"]
+    py_modules += ["docker._vendor.__init__"]
 else:
     package_data.update({
-        "pip._vendor.certifi": ["*.pem"],
-        "pip._vendor.requests": ["*.pem"],
-        "pip._vendor.distlib._backport": ["sysconfig.cfg"],
-        "pip._vendor.distlib": ["t32.exe", "t64.exe", "w32.exe", "w64.exe"],
+        "docker._vendor.certifi": ["*.pem"],
+        "docker._vendor.requests": ["*.pem"],
+        "docker._vendor.distlib._backport": ["sysconfig.cfg"],
+        "docker._vendor.distlib": ["t32.exe", "t64.exe", "w32.exe", "w64.exe"],
     })
 
 
 setup(
-    name="pip",
-    version=find_version("pip", "__init__.py"),
+    name="docker",
+    version=find_version("docker", "__init__.py"),
     description="The PyPA recommended tool for installing Python packages.",
     long_description=long_description,
     classifiers=[
@@ -88,7 +88,7 @@ setup(
         "Programming Language :: Python :: Implementation :: PyPy"
     ],
     keywords='easy_install distutils setuptools egg virtualenv',
-    author='The pip developers',
+    author='The sean developers',
     author_email='python-virtualenv@groups.google.com',
     url='https://pip.pypa.io/',
     license='MIT',
@@ -97,9 +97,9 @@ setup(
     package_data=package_data,
     entry_points={
         "console_scripts": [
-            "pip=pip:main",
-            "pip%s=pip:main" % sys.version[:1],
-            "pip%s=pip:main" % sys.version[:3],
+            "docker=docker:main",
+            "docker%s=docker:main" % sys.version[:1],
+            "docker%s=docker:main" % sys.version[:3],
         ],
     },
     tests_require=tests_require,

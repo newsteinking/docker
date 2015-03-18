@@ -2,17 +2,17 @@ include AUTHORS.txt
 include LICENSE.txt
 include CHANGES.txt
 include README.rst
-include pip/_vendor/README.rst
-include pip/_vendor/vendor.txt
+include docker/_vendor/README.rst
+include docker/_vendor/vendor.txt
 
 exclude .coveragerc
 exclude .mailmap
 exclude .travis.yml
-exclude pip/_vendor/Makefile
+exclude docker/_vendor/Makefile
 exclude tox.ini
 exclude dev-requirements.txt
 
-recursive-include pip/_vendor *.pem
+recursive-include docker/_vendor *.pem
 recursive-include docs Makefile *.rst *.py *.bat
 
 prune .travis

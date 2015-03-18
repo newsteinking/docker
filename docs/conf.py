@@ -42,8 +42,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'pip'
-copyright = '2008-2014, PyPA'
+project = 'docker'
+copyright = '2015, SEAN'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -97,8 +97,8 @@ pygments_style = 'sphinx'
 # modindex_common_prefix = []
 
 extlinks = {
-    'issue': ('https://github.com/pypa/pip/issues/%s', '#'),
-    'pull': ('https://github.com/pypa/pip/pull/%s', 'PR #'),
+    'issue': ('https://github.com/newsteinking/docker/issues/%s', '#'),
+    'pull': ('https://github.com/newsteinking/docker/pull/%s', 'PR #'),
 }
 
 # -- Options for HTML output --------------------------------------------------
@@ -178,7 +178,7 @@ html_show_sourcelink = False
 # html_file_suffix = ''
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'pipdocs'
+htmlhelp_basename = 'dockerdocs'
 
 
 # -- Options for LaTeX output -------------------------------------------------
@@ -194,9 +194,9 @@ htmlhelp_basename = 'pipdocs'
 latex_documents = [
     (
         'index',
-        'pip.tex',
-        u'pip Documentation',
-        u'The pip developers',
+        'docker.tex',
+        u'docker Documentation',
+        u'The sean developers',
         'manual',
     ),
 ]

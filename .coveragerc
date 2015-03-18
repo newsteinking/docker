@@ -1,4 +1,4 @@
 [run]
 branch = True
 omit =
-  pip/_vendor/*
+  docker/_vendor/*
