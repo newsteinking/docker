@@ -207,59 +207,7 @@ extract ubuntu.tar and jump to lagest directory and will see layer.tar
 
 
 
-
-
-1.2.5  Docker bash alias
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#Docker
-::
-
-    #Remove non-tagged images
-    function docker-rmi-none() {
-    docker rmi $(docker images | grep none | awk '{print $3}');
-    }
-
-    #Remove all containers
-    function docker-rm-all() {
-    docker rm $(docker ps -aq)
-    }
-
-    #Docker run image ($1) with default (bash) or specific command
-    function dr() {
-    cmd="bash"
-
-    [ $# -eq 2 ] && cmd=$2
-    echo "docker run -it --rm $1 $cmd"
-    docker run --name tmp$(( $(docker ps | wc -l) - 1))  -it --rm $1 $cmd
-    }
-
-    #Load saved Docker image (from full path or default dir)
-    function dl() {
-    local path=$1
-    [[ "${path}" =~ ^.*/.*$ ]] || path="${HOME}/devel/brew/"${path}
-
-    docker load -i ${path}
-    }
-
-    #Docker exec $cmd (defaul: bash) in $container (default: first container in docker ps)
-    function de() {
-    local cmd=bash
-    local container=$1
-    [ -z "$1" ] && container=$(docker ps | tail -1 | awk '{print $1}')
-    [ "$container" == "CONTAINER" ] && >&2 echo "No running container" && return 0
-    [ $# -ge 2 ] && shift && cmd=$@
-    docker exec -it $container $cmd
-    }
-
-    #Get IP of $container (default: first container in docker ps)
-    function di() {
-    local container=$1
-    [ -z "$1" ] && container=$(docker ps | tail -1 | awk '{print $1}')
-    [ "$container" == "CONTAINER" ] && >&2 echo "No running container" && return 0
-    docker inspect $container | jq -r .[0].NetworkSettings.IPAddress
-    }
-
-1.2.6 docker images delete
+1.2.5 docker images delete
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *(none) image delete
@@ -282,7 +230,7 @@ extract ubuntu.tar and jump to lagest directory and will see layer.tar
 
 
 
-1.2.7  gunicorn error
+1.2.6  gunicorn error
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 yum erase python-pip
@@ -310,7 +258,7 @@ wget https://pypi.python.org/packages/source/p/pip/pip-1.2.1.tar.gz
 *install gunicorn
 pip install gunicorn
 
-1.2.8  make a private registry
+1.2.7  make a private registry
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ref  :https://blog.codecentric.de/en/2014/02/docker-registry-run-private-docker-image-repository/
 
@@ -554,7 +502,7 @@ ENV HTTPS_PROXY 'http://10.3.0.172:8080'
 * netstat
 netstat -tulpn
 
-1.2.9  Basic certification
+1.2.8  Basic certification
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 /etc/hosts
@@ -582,13 +530,5 @@ in client, copy server.crt and execute 3
 yum install httpd-tools
 
 
-1.2.10  Create a CA, server and client keys with OpenSSL
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-First generate CA private and public keys:
-::
-
-    openssl genrsa -aes256 -out ca-key.pem 2048
 
 
