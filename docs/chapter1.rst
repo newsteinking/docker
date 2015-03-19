@@ -134,7 +134,9 @@ and will make repository file in /data/docker
     yum --enablerepo=elrepo-kernel install kernel-ml
 
 
-.
+.when remote access
+
+   cannot access if kernel is not upgrade
 
 
 1.2.3 docker start error
@@ -205,6 +207,11 @@ extract ubuntu.tar and jump to lagest directory and will see layer.tar
 
 
 * local repository push
+::
+
+    docker tag 10.3.0.
+
+
 
 docker push xx.xx.xx.xx:5000/centos
 
@@ -218,6 +225,13 @@ docker push xx.xx.xx.xx:5000/centos
 
 
 .
+* listennig port
+::
+
+    netstat -tulpn
+
+.
+
 
 1.2.5  Docker bash alias
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -358,6 +372,27 @@ in all access server, will insert --insecuur-registry
 other_args=" -g /data/docker -p /var/run/docker.pid --insecure-registry 10.3.0.115:5000 "
 
 
+
+Edit the config file "/etc/default/docker"
+
+    sudo vi /etc/default/docker
+
+add the line at the end of file
+
+    DOCKER_OPTS="$DOCKER_OPTS --insecure-registry=192.168.2.170:5000"
+
+(replace the 192.168.2.170 with your own ip address)
+
+and restart docker service
+
+    sudo service docker restart
+
+
+
+
+
+
+
 *make registry error
 
 /docker-registry-demo/registry/docker-registry
@@ -433,6 +468,7 @@ python setup.py install
 
 ::
 
+    docker tag lukaspustina/registry 10.3.0.115
     docker tag nacyot/hello_docker 0.0.0.0:5000/hello_docker
 
     docker tag centos:5 10.3.0.115:5000/centos:5
@@ -520,5 +556,13 @@ in client, copy server.crt and execute 3
 yum install httpd-tools
 
 
-1.2.10  docker images
------------------------------------
+1.2.10  Create a CA, server and client keys with OpenSSL
+----------------------------------------------------------------
+
+
+First generate CA private and public keys:
+::
+
+    openssl genrsa -aes256 -out ca-key.pem 2048
+
+

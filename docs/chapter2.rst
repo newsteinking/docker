@@ -63,18 +63,7 @@ change kernel booting sequence
     files -
 
 
-2.1.5 Directory Size
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-2.1.6 Directory Size
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-2.1.7 Directory Size
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.
 
 
 
@@ -152,6 +141,8 @@ CentOS basic development install
 
 2.2.5  HTTP Tunneling
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+this is not good
 
 install package
 ::
