@@ -206,31 +206,7 @@ extract ubuntu.tar and jump to lagest directory and will see layer.tar
 
 
 
-* local repository push
-::
 
-    docker tag 10.3.0.
-
-
-
-docker push xx.xx.xx.xx:5000/centos
-
-* local repository search
-
-::
-
-    docker search localhost:5000/centos
-    docker search 10.3.0.77:5000/centos
-
-
-
-.
-* listennig port
-::
-
-    netstat -tulpn
-
-.
 
 
 1.2.5  Docker bash alias
@@ -339,6 +315,10 @@ pip install gunicorn
 ref  :https://blog.codecentric.de/en/2014/02/docker-registry-run-private-docker-image-repository/
 
 https://github.com/lukaspustina/docker-registry-demo
+::
+
+    $git clone
+
 
 make base
 make registry
@@ -405,8 +385,9 @@ pip install -r main.txt
 
 
 SWIG/_m2crypto.i:30: Error: Unable to find 'openssl/opensslv.h'
+::
 
-yum install openssl-devel
+    yum install openssl-devel
 
 
 
@@ -460,33 +441,86 @@ python setup.py install
 
 
 
-*push in docker registry
+* local repository push
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. tag
-2. push
+Now the new feature! To push to or pull from your own registry, you just need to add the
+registry’s location to the repository name. It will look like my.registry.address:port/repositoryname
 
 
+Let’s say I want to push the repository “ubuntu” to my local registry,
+which runs on my local machine, on the port 5000:
+
+docker push localhost.localdomain:5000/ubuntu
+
+It’s important to note that we’re using a domain containing a “.” here, i.e. localhost.domain.
+Docker looks for either a “.” (domain separator) or “:” (port separator) to learn that the first
+part of the repository name is a location and not a user name. If you just had localhost
+without either .localdomain or :5000 (either one would do) then Docker would believe that localhost is a username,
+as in localhost/ubuntu or samalba/hipache. It would then try to push to the default Central Registry.
+Having a dot or colon in the first part tells Docker that this name contains a hostname
+and that it should push to your specified location instead.
+
+
+docker example
+~~~~~~~~~~~~~~~~~~~~~~
+[REGISTRY]/[IMAGE_NAME]
 ::
 
-    docker tag lukaspustina/registry 10.3.0.115
-    docker tag nacyot/hello_docker 0.0.0.0:5000/hello_docker
+    docker search centos:6                             //search  centos 6 version from docker hub
+    docker pull centos:6                               //get   centos 6 version from docker hub
+    docker tag -f centos:6  10.3.0.115:5000/centos6    //tag centos 6 version with local ip/port
+    docker push 10.3.0.115:5000/centos6                // push centos 6 in local repository
 
-    docker tag centos:5 10.3.0.115:5000/centos:5
-    docker tag ubuntu:latest  10.3.0.115:5000/ubuntu:latest
+in other machine
+::
 
-
-    docker push 10.3.0.115:5000/centos:5
-
-    docker push 10.3.0.77:5000/centos:5
-
-Pushing tag for rev [861c710fef70] on {http://10.3.0.115:5000/v1/repositories/centos/tags/5}
+    docker pull 103.0.115:5000/centos6
 
 .
 
-* pull remote repository
 
-docker pull 10.3.0.115:5000/registry
+*redhat registry
+::
 
+    docker search registry.access.redhat.com/rhel
+
+
+* remote search
+
+[REGISTRY]/[IMAGE_NAME]
+
+::
+
+    docker search [my.registry.host]:[port]/library  //xxx
+    docker search 10.3.0.115:5000/library             //xxx
+    curl http://10.3.0.115:5000/v1/repositories/hello_world/tags/latest //000
+
+    curl -X GET http://10.3.0.115:5000/v1/search   // XXX
+    curl -X GET http://10.3.0.115:5000/v1/search?q=registry //XXX
+
+
+.
+
+*RUN
+::
+
+    docker run -p 8080:8080 atcol/docker-registry-ui
+
+.
+
+*RUN Registry UI
+::
+
+    docker run -p 8080:8080 -e REG1=http://registry_host.name:5000/v1/ atcol/docker-registry-ui
+    docker run -p 8080:8080 -e REG1=http://10.3.0.115:5000/vi atcol/docker-registry-ui
+
+
+
+.
+*docker https
+
+Docker version > 1.3.1 communicates over HTTPS by default when connecting to docker registry
 
 
 * docker search http proxy setting
@@ -515,14 +549,6 @@ ENV HTTPS_PROXY 'http://10.3.0.172:8080'
 
 
 
-* remote search
-
-curl -X GET http://10.3.0.115:5000/v1/search?q=registry
-curl -X GET http://10.3.0.115:5000/v1/search
-
-
-
-docker search 10.3.0.115:5000/library
 
 
 * netstat

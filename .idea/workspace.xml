@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4fd254a3-8dc8-44be-b982-c1de39ee8d44" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/chapter1.rst" afterPath="$PROJECT_DIR$/docs/chapter1.rst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/chapter2.rst" afterPath="$PROJECT_DIR$/docs/chapter2.rst" />
     </list>
     <ignored path="docker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,8 +48,8 @@
       <file leaf-file-name="chapter1.rst" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docs/chapter1.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7160494" vertical-offset="2470" max-vertical-offset="12628">
-              <caret line="136" column="19" selection-start-line="136" selection-start-column="19" selection-end-line="136" selection-end-column="19" />
+            <state vertical-scroll-proportion="-2.6213992" vertical-offset="12471" max-vertical-offset="13200">
+              <caret line="480" column="0" selection-start-line="480" selection-start-column="0" selection-end-line="480" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -382,7 +381,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="5" y="1" width="1906" height="1021" extended-state="1" />
+    <frame x="5" y="1" width="1906" height="1021" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -591,8 +590,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/chapter1.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7160494" vertical-offset="2470" max-vertical-offset="12628">
-          <caret line="136" column="19" selection-start-line="136" selection-start-column="19" selection-end-line="136" selection-end-column="19" />
+        <state vertical-scroll-proportion="-2.6213992" vertical-offset="12471" max-vertical-offset="13200">
+          <caret line="480" column="0" selection-start-line="480" selection-start-column="0" selection-end-line="480" selection-end-column="0" />
           <folding />
         </state>
       </provider>
