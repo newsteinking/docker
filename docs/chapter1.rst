@@ -583,7 +583,7 @@ yum install httpd-tools
 
 
 1.2.10  Create a CA, server and client keys with OpenSSL
-----------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 First generate CA private and public keys:
