@@ -1,12 +1,12 @@
 .. _`LinuxCMD`:
 
-chapter 2 :Linux Command
+chapter 3 :Linux Command
 ============================
 
-2.1 Basic
+3.1 Basic
 ------------------------
 
-2.1.1 Directory Size
+3.1.1 Directory Size
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   display directory size
@@ -16,7 +16,7 @@ chapter 2 :Linux Command
     $ du -hs  [directory name]
 
 
-2.1.2 manual core dump
+3.1.2 manual core dump
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
@@ -28,7 +28,7 @@ core dump make in following
 /var/crash/xxx/vmcore
 
 
-2.1.3 grub
+3.1.3 grub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 change kernel booting sequence
@@ -39,7 +39,7 @@ change kernel booting sequence
 
 
 
-2.1.4 crash
+3.1.4 crash
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
@@ -67,10 +67,10 @@ change kernel booting sequence
 
 
 
-2.2 Package Install
+3.2 Package Install
 --------------------------------
 
-2.2.1  kernel debug info
+3.2.1  kernel debug info
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 kernel debugging infor
@@ -83,7 +83,7 @@ kernel debugging infor
 /usr/lib/debug/lib/modules/'uname -r'/vmlinux
 
 
-2.2.2  ELREPO  add
+3.2.2  ELREPO  add
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 kernel debugging info install
@@ -112,7 +112,7 @@ To install ELRepo for RHEL-5, SL-5 or CentOS-5:
 
 
 
-2.2.3  CentOS Desktop & X windows
+3.2.3  CentOS Desktop & X windows
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -122,7 +122,7 @@ To install ELRepo for RHEL-5, SL-5 or CentOS-5:
     $yum -groupinstall "Desktop" "Desktop Platform" "X window system" "Fonts"
 
 
-2.2.4  CentOS Development
+3.2.4  CentOS Development
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CentOS basic development install
@@ -139,7 +139,7 @@ CentOS basic development install
 
 
 
-2.2.5  HTTP Tunneling
+3.2.5  HTTP Tunneling
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 this is not good
@@ -166,7 +166,7 @@ On Client side
     $htc -P 10.77.241.121:80 -F 80 10.77.241.121:80
 
 .
-2.2.6  Linux Route add
+3.2.6  Linux Route add
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 route add {-host|-net} Target[/prefix] [gw Gw] [dev]
@@ -187,7 +187,7 @@ delete
     route del -net 10.77.212.0/24
 
 .
-2.2.7  user list
+3.2.7  user list
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Task: Linux List Users Command
 
