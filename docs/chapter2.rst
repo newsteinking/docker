@@ -1,199 +1,138 @@
-.. _`LinuxCMD`:
+chapter2   docker run
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-chapter 2 :Linux Command
-============================
 
-2.1 Basic
-------------------------
+* jdeathe/centos-ssh
+~~~~~~~~~~~~~~~~~~~~~~~
+https://github.com/jdeathe/centos-ssh
+Quick Run
+::
 
-2.1.1 Directory Size
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    docker run -d --name ssh.pool-1.1.1 -p 2020:22  jdeathe/centos-ssh:latest
 
-  display directory size
+
+
+configuration data volume
+::
+
+    mkdir -p /etc/services-config/ssh.pool-1
+
+    docker run --name volume-config.ssh.pool-1.1.1  -v /etc/services-config/ssh.pool-1:/etc/services-config/ssh busybox:latest /bin/true
+
+    $docker stop ssh.pool-1.1.1
+    $docker rm ssh.pool-1.1.1
+    $docker run -d  --name ssh.pool-1.1.1 -p :22 --volumes-from volume-config.ssh.pool-1.1.1 jdeathe/centos-ssh:latest
+
+
+
+Now you can find out the app-admin, (sudoer), user's password by inspecting the container's logs
 
 ::
 
-    $ du -hs  [directory name]
+    $ docker logs ssh.pool-1.1.1   //docker logs <docker container name>
 
+.
+Connect to the running container using SSH
 
-2.1.2 manual core dump
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-::
-
-    $echo c > /proc/sysrq-trigger   or ALT+SysRq+C
-
-core dump make in following
-
-/var/crash/xxx/vmcore
-
-
-2.1.3 grub
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-change kernel booting sequence
+If you have not already got one, create the .ssh directory in your home directory with the permissions required by SSH.
 
 ::
 
-    $vi /boot/grub/grub.conf
+    $ mkdir -pm 700 ~/.ssh
 
-
-
-2.1.4 crash
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Get the Vagrant insecure public key using curl (you could also use wget if you have that installed).
 
 ::
 
-    sys -
-    bt -
-    ps - Process list
-    free - Memory
-    mount -
-    irq - .
-    kmem -
-    log -
-    mod -
-    net -
-    runq -
-    task -
-    rd -
-    foreach -
-    set -
-    struct -
-    files -
+    $ curl -LsSO https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant
+    $mv vagrant ~/.ssh/id_rsa_insecure
+    $ chmod 600 ~/.ssh/id_rsa_insecure
 
+If the command ran successfully you should now have a new private SSH key installed in your home "~/.ssh"
+directory called "id_rsa_insecure"
+
+
+Next, unless we specified one, we need to determine what port to connect to on the docker host.
+You can do this with ether docker ps or docker inspect. In the following example we use docker ps to
+show the list of running containers and pipe to grep to filter out the host port.
+
+::
+
+    $ docker ps | grep ssh.pool-1.1.1 | grep -oe ':[0-9]*->22\/tcp' | grep -oe ':[0-9]*' |cut -c 2-
+
+To connect to the running container use:
+
+::
+
+    ssh -p <container-port> -i ~/.ssh/id_rsa_insecure app-admin@<docker-host-ip>  -o StrictHostKeyChecking=no
+    ssh  -p 49154 -i ~/.ssh/id_rsa_insecure app-admin@10.3.0.115  -o StrictHostKeyChecking=no
+    ssh  -p 49154 -i ~/.ssh/id_rsa_insecure app-admin@localhost  -o StrictHostKeyChecking=no
+
+is not good ....
+
+.
+* dockerfiles-centos-ssh
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+https://github.com/CentOS/CentOS-Dockerfiles/tree/master/ssh/centos6
+
+Building & Running
+
+Copy the sources to your docker host and build the container:
+
+::
+
+    # docker build -rm -t <username>/ssh:centos6 .
+    # docker build -rm -t sean/ssh:centos6 .
+
+To run:
+::
+
+    # docker run -d -p 22 sean/ssh:centos6
+
+
+
+To test, use the port that was just located:
+::
+
+    # ssh -p xxxx user@localhost
+    # ssh -p 49155 user@localhost
 
 .
 
+tutum-centos
+~~~~~~~~~~~~~~~~~~~~~~~~~
+https://github.com/tutumcloud/tutum-centos
 
-
-2.2 Package Install
---------------------------------
-
-2.2.1  kernel debug info
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-kernel debugging infor
+To create the image tutum/centos with one tag per CentOS release, execute the following commands on the tutum-ubuntu repository folder:
 
 ::
 
-    $yum --enablerepo=debug install kernel-debuginfo-'uname -r'
+    docker build -t tutum/centos:latest .
 
+    docker build -t tutum/centos:centos5 centos5
 
-/usr/lib/debug/lib/modules/'uname -r'/vmlinux
+    docker build -t tutum/centos:centos6 centos6
 
+    docker build -t tutum/centos:centos7 centos7
 
-2.2.2  ELREPO  add
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-kernel debugging info install
-
-
-To install ELRepo for RHEL-7, SL-7 or CentOS-7:
+Run a container from the image you created earlier binding it to port 2222 in all interfaces:
 ::
 
-    $rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm (external link)
+    sudo docker run -d -p 0.0.0.0:2222:22 tutum/centos
 
-To make use of our mirror system, please also install yum-plugin-fastestmirror.
-
-To install ELRepo for RHEL-6, SL-6 or CentOS-6:
+The first time that you run your container, a random password will be generated for user root. To get the password, check the logs of the container by running:
 
 ::
 
-    rpm -Uvh http://www.elrepo.org/elrepo-release-6-6.el6.elrepo.noarch.rpm (external link)
+    docker logs <CONTAINER_ID>
 
-To make use of our mirror system, please also install yum-plugin-fastestmirror.
-
-To install ELRepo for RHEL-5, SL-5 or CentOS-5:
-
+If you want to use a preset password instead of a random generated one, you can set the environment
+variable ROOT_PASS to your specific password when running the container:
 ::
 
-    rpm -Uvh http://www.elrepo.org/elrepo-release-5-5.el5.elrepo.noarch.rpm (external link)
+    docker run -d -p 0.0.0.0:2222:22 -e ROOT_PASS="mypass" tutum/centos
+    docker run -d -p 0.0.0.0:2222:22 -e ROOT_PASS="1234" tutum/centos
 
-
-
-2.2.3  CentOS Desktop & X windows
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-::
-
-    $yum -groupinstall "Desktop" "Desktop Platform" "X window system" "Fonts"
-
-
-2.2.4  CentOS Development
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-CentOS basic development install
-
-::
-
-    $yum install gcc
-    $yum groupinstall "Development Tools"
-    $yum install ncurses-devel
-    $yum install libncurses5-dev
-    $yum install python-dev
 
 .
-
-
-
-2.2.5  HTTP Tunneling
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-this is not good
-
-install package
-::
-
-    yum install httptunnel
-
-
-On Server side
-::
-
-    $hts -F <server_ip_addr>:<port_of_your_app> 80
-    $hts -F 10.3.0.115:80 80
-    $hts -F 10.77.241.121:80 80
-
-
-On Client side
-::
-
-    $htc -P <my_proxy.com:proxy_port> -F <port_of_your_app> <server_ip_addr>:80
-    $htc -P 10.3.0.115:80 -F 80 10.3.0.115:80
-    $htc -P 10.77.241.121:80 -F 80 10.77.241.121:80
-
-.
-2.2.6  Linux Route add
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-route add {-host|-net} Target[/prefix] [gw Gw] [dev]
-route del {-host|-net} Target[/prefix] [gw Gw] [dev]
-::
-
-    [root@localhost ~]# route  add  -net  192.168.200.0/24  gw  192.168.100.1  dev  bond0
-    [root@localhost ~]# route  add  -host  192.168.200.100  gw  192.168.100.1  dev  bond1
-
-or
-::
-
-    route add -net 10.77.212.0/24 gw  10.77.241.1 dev eth1
-
-delete
-::
-
-    route del -net 10.77.212.0/24
-
-.
-2.2.7  user list
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Task: Linux List Users Command
-
-To list only usernames type the following awk command:
-::
-
-    $ awk -F':' '{ print $1}' /etc/passwd
-
- .

@@ -18,6 +18,7 @@ docker
    chapter0
    chapter1
    chapter2
+   chapter3
 
 
 
