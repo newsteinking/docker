@@ -691,7 +691,10 @@ To run:
 ::
 
     # docker run -d -p 22 sean/ssh:centos6
+
+
 To test, use the port that was just located:
+
 ::
 
     # ssh -p xxxx user@localhost
