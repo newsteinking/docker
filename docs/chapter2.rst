@@ -1,12 +1,38 @@
 chapter2   docker run
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+::
+
+    docker -e GUNICORN_OPTS=[--preload] run --name registry   -p 5000:5000 -v `pwd`/registry/docker-registry-storage:/docker-registry-storage $(USERNAME)/registry
+
+.
+
+
 
 2.1 crosbymichael/dockerui
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+::
+
+    yum install npm
+
+    make install
+
+
+
+
 https://github.com/crosbymichael/dockerui
 
+Container Quickstart
+
+You must add option  -e GUNICORN_OPTS=[--preload]
+::
+
+    docker run -d -p 9000:9000 --privileged -v /var/run/docker1.sock:/var/run/docker1.sock dockerui/dockerui ==>
+    docker -e GUNICORN_OPTS=[--preload] run  -p 9000:9000 --privileged -v /var/run/docker.sock:/var/run/docker.sock dockerui/dockerui
+
+.
+Open your browser to http://<dockerd host ip>:9000
 
 
 
