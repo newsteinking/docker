@@ -166,4 +166,34 @@ On Client side
     $htc -P 10.77.241.121:80 -F 80 10.77.241.121:80
 
 .
+2.2.6  Linux Route add
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+route add {-host|-net} Target[/prefix] [gw Gw] [dev]
+route del {-host|-net} Target[/prefix] [gw Gw] [dev]
+::
+
+    [root@localhost ~]# route  add  -net  192.168.200.0/24  gw  192.168.100.1  dev  bond0
+    [root@localhost ~]# route  add  -host  192.168.200.100  gw  192.168.100.1  dev  bond1
+
+or
+::
+
+    route add -net 10.77.212.0/24 gw  10.77.241.1 dev eth1
+
+delete
+::
+
+    route del -net 10.77.212.0/24
+
+.
+2.2.7  user list
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task: Linux List Users Command
+
+To list only usernames type the following awk command:
+::
+
+    $ awk -F':' '{ print $1}' /etc/passwd
+
+ .
