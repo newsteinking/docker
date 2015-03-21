@@ -592,8 +592,7 @@ add following
 
 ::
 
-    sudo rm /var/lib/apt/lists/* -vf
-    sudo rm  -rvf /var/lib/apt/lists/*
+    sudo rm  -rvf /var/lib/apt/lists/*    // add this 
 
     sudo apt-get update
 
