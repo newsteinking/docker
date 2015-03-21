@@ -579,4 +579,21 @@ ref :https://github.com/CentOS/CentOS-Dockerfiles.git
 
 .
 
+1.2.9  ubuntu apt-get error
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+::
+
+    W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/trusty-updates/universe/binary-amd64/Packages  Hash Sum mismatch
+
+.
+in Dockerfile
+add following
+
+::
+
+    sudo rm /var/lib/apt/lists/* -vf
+
+    sudo apt-get update
+
+.
