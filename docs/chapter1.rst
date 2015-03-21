@@ -582,6 +582,14 @@ ref :https://github.com/CentOS/CentOS-Dockerfiles.git
 1.2.9  ubuntu apt-get error
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Basic
+::
+
+    yum install python-pip python-devel
+    pip install -r ./requirements/main.txt
+
+.
+
 ::
 
     W: Failed to fetch http://us.archive.ubuntu.com/ubuntu/dists/trusty-updates/universe/binary-amd64/Packages  Hash Sum mismatch
@@ -590,10 +598,53 @@ ref :https://github.com/CentOS/CentOS-Dockerfiles.git
 in Dockerfile
 add following
 
+
 ::
 
-    sudo rm  -rvf /var/lib/apt/lists/*    // add this 
-
+    sudo rm  -rvf /var/lib/apt/lists/*    // add this
+    sudo sed 's@archive.ubuntu.com@ubuntu.mirror.atratoip.net@' -i /etc/apt/sources.list  ///xxx
+    sudo sed 's@archive.ubuntu.com@ftp.kaist.ac.kr@' -i /etc/apt/sources.list   ////OOOO
     sudo apt-get update
+
+.
+1.2.9  docker worker error
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+when making basic docker registry, you will find following erros
+
+::
+    gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot
+
+and  you can setup again as follow
+::
+
+    $cd docker-registry
+    $python setup.py install
+
+will find following
+::
+
+    SWIG/_m2crypto_wrap.c:28973: error
+
+    error: Could not find suitable distribution for Requirement.parse('Flask==0.10.1')
+
+
+and install
+::
+
+    yum install python-devel
+    yum install m2crypto
+    yum install liblzma-devel  lzma-devel
+
+
+
+
+    yum install python-pip python-devel
+    pip install -r ./requirements/main.txt
+
+
+.
+
+
 
 .
