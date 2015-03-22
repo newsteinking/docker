@@ -1,5 +1,5 @@
 chapter2   docker run
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==============================
 
 ::
 
@@ -7,9 +7,10 @@ chapter2   docker run
 
 .
 
+2.1 docker usability
+--------------------------
 
-
-2.1 crosbymichael/dockerui
+2.1.1 crosbymichael/dockerui
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
@@ -36,7 +37,7 @@ Open your browser to http://<dockerd host ip>:9000
 
 
 
-2.1 jdeathe/centos-ssh
+2.1.2 jdeathe/centos-ssh
 ~~~~~~~~~~~~~~~~~~~~~~~
 https://github.com/jdeathe/centos-ssh
 Quick Run
@@ -105,7 +106,7 @@ To connect to the running container use:
 is not good ....
 
 .
-2.3 dockerfiles-centos-ssh
+2.1.3 dockerfiles-centos-ssh
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 https://github.com/CentOS/CentOS-Dockerfiles/tree/master/ssh/centos6
@@ -134,7 +135,7 @@ To test, use the port that was just located:
 
 .
 
-2.4 tutum-centos
+2.1.4 tutum-centos
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 https://github.com/tutumcloud/tutum-centos
 
