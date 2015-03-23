@@ -40,6 +40,17 @@ Open your browser to http://<dockerd host ip>:9000
 2.1.2 jdeathe/centos-ssh
 ~~~~~~~~~~~~~~~~~~~~~~~
 https://github.com/jdeathe/centos-ssh
+
+manual build
+
+change its value in etc folder ( Docker git directory)
+
+::
+
+    $docker build -rm -t jdeathe/centos-ssh:latest .
+
+
+
 Quick Run
 ::
 
@@ -47,7 +58,8 @@ Quick Run
 
 
 
-configuration data volume
+configuration data volume for shareing
+
 ::
 
     mkdir -p /etc/services-config/ssh.pool-1
@@ -102,8 +114,12 @@ To connect to the running container use:
     ssh -p <container-port> -i ~/.ssh/id_rsa_insecure app-admin@<docker-host-ip>  -o StrictHostKeyChecking=no
     ssh  -p 49154 -i ~/.ssh/id_rsa_insecure app-admin@10.3.0.115  -o StrictHostKeyChecking=no
     ssh  -p 49154 -i ~/.ssh/id_rsa_insecure app-admin@localhost  -o StrictHostKeyChecking=no
+    ssh  -p 2020 -i ~/.ssh/id_rsa_insecure root@localhost -o StrictHostKeyChecking=no
+    ssh  -p 2020 -i ~/.ssh/id_rsa_insecure app-admin@localhost -o StrictHostKeyChecking=no
 
-is not good ....
+
+OK
+
 
 .
 2.1.3 dockerfiles-centos-ssh
@@ -120,6 +136,7 @@ Copy the sources to your docker host and build the container:
     # docker build -rm -t <username>/ssh:centos6 .
     # docker build -rm -t sean/ssh:centos6 .
 
+
 To run:
 ::
 
@@ -133,7 +150,8 @@ To test, use the port that was just located:
     # ssh -p xxxx user@localhost
     # ssh -p 49155 user@localhost
 
-.
+OK
+
 
 2.1.4 tutum-centos
 ~~~~~~~~~~~~~~~~~~~~~~~~~
