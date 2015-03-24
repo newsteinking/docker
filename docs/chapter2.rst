@@ -216,10 +216,16 @@ http://www.projectatomic.io/docs/quickstart/
 
 In fedora image , there was continous disconnection when two network was established.
 setting
-$sudo vi /etc/bashrc
+::
 
-add NM_CONTROLLED="yes"
-and
-$sudo systemctl stop NetworkManager
-$sudo systemctl disable NetworkManager
-$sudo systemctl restart network
+    $sudo vi /etc/bashrc
+
+    add NM_CONTROLLED="yes"
+    and
+    $sudo systemctl stop NetworkManager
+    $sudo systemctl disable NetworkManager
+    $sudo systemctl restart network
+
+.
+
+

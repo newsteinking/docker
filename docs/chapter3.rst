@@ -197,3 +197,170 @@ To list only usernames type the following awk command:
     $ awk -F':' '{ print $1}' /etc/passwd
 
  .
+
+
+
+
+
+3.3 CentOS7,RHEL7,Fedora 21
+--------------------------------
+
+3.3.1  service start
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Stop service:
+::
+
+    systemctl stop httpd
+
+
+Start service:
+::
+
+    systemctl start httpd
+
+
+
+Restart service (stops/starts):
+::
+
+    systemctl restart httpd
+
+
+
+Reload service (reloads config file):
+::
+
+    systemctl reload httpd
+
+
+
+
+List status of service:
+::
+
+    systemctl status httpd
+
+
+
+What about chkconfig? That changed too? Yes, now you want to use systemctl for the chkconfig commands also..
+
+chkconfig service on:
+::
+
+    systemctl enable httpd
+
+
+chkconfig service off:
+::
+
+    systemctl disable httpd
+
+
+chkconfig service (is it set up to start?)
+::
+
+    systemctl is-enabled httpd
+
+
+chkconfig –list (shows what is and isn’t enabled)
+::
+
+    systemctl list-unit-files --type=service
+
+
+.
+
+
+
+
+3.3.2  add servcie
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+OS used in this guide: CentOS 7 with EPEL for the iperf3 package
+
+1. First, install iperf3.
+::
+
+    $ sudo yum install iperf3
+
+.
+
+2. Next, create a user iperf which will be used to run the iperf3 service.
+::
+
+    $ sudo adduser iperf -s /sbin/nologin
+
+.
+
+3. Next, create the following file:
+::
+
+
+    /etc/systemd/system/iperf3.service
+
+.
+
+
+Put in the following contents and save the file:
+::
+
+    [Unit]
+    Description=iperf3 Service
+    After=network.target
+
+    [Service]
+    Type=simple
+    User=iperf
+    ExecStart=/usr/bin/iperf3 -s
+    Restart=on-abort
+
+
+    [Install]
+    WantedBy=multi-user.target
+
+.
+
+
+Done.
+Start the iperf3 service:
+::
+
+    $ sudo systemctl start iperf3
+
+
+Check the status:
+
+[stmiller@ny ~]$ sudo systemctl status iperf3
+iperf3.service - iperf3 Service
+   Loaded: loaded (/etc/systemd/system/iperf3.service; disabled)
+   Active: active (running) since Mon 2014-12-08 13:43:49 EST; 18s ago
+ Main PID: 32657 (iperf3)
+   CGroup: /system.slice/iperf3.service
+           └─32657 /usr/bin/iperf3 -s
+
+Dec 08 13:43:49 ny.stmiller.org systemd[1]: Started iperf3 Service.
+[stmiller@ny ~]$
+
+Stop the iperf3 service:
+::
+
+    $ sudo systemctl stop iperf3
+
+
+Start the service at boot:
+
+[stmiller@ny ~]$ sudo systemctl enable iperf3
+ln -s '/etc/systemd/system/iperf3.service' '/etc/systemd/system/multi-user.target.wants/iperf3.service'
+
+Disable the service at boot:
+::
+
+    $ sudo systemctl disable iperf3
+
+.
+
+
+3.3.3  user list
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.
