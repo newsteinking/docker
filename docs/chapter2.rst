@@ -189,3 +189,23 @@ variable ROOT_PASS to your specific password when running the container:
 
 
 .
+2.2 Automic run tool
+--------------------------
+
+
+2.2.1 Automic Site
+~~~~~~~~~~~~~~~~~~~~~~~~~
+https://github.com/projectatomic/atomic-site.git
+
+$ ./ docker.sh&
+
+::
+
+    chcon -Rt svirt_sandbox_file_t source/
+    # requires docker and being in the right group
+    docker build -t middleman .
+    docker run -p 4567:4567 -v "$(pwd)"/source:/tmp/source:ro middleman
+
+
+and browsing in http://10.3.0.115:4567/ or http://localhost:4567/
+
