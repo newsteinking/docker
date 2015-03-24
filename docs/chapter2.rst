@@ -209,3 +209,17 @@ $ ./ docker.sh&
 
 and browsing in http://10.3.0.115:4567/ or http://localhost:4567/
 
+2.2.2 Automic image
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+http://www.projectatomic.io/docs/quickstart/
+
+In fedora image , there was continous disconnection when two network was established.
+setting
+$sudo vi /etc/bashrc
+
+add NM_CONTROLLED="yes"
+and
+$sudo systemctl stop NetworkManager
+$sudo systemctl disable NetworkManager
+$sudo systemctl restart network
