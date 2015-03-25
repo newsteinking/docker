@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fd254a3-8dc8-44be-b982-c1de39ee8d44" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/chapter1.rst" afterPath="$PROJECT_DIR$/docs/chapter1.rst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/chapter2.rst" afterPath="$PROJECT_DIR$/docs/chapter2.rst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/chapter3.rst" afterPath="$PROJECT_DIR$/docs/chapter3.rst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="docker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chapter1.rst" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="chapter1.rst" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docs/chapter1.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="13107" max-vertical-offset="14432">
-              <caret line="598" column="13" selection-start-line="598" selection-start-column="13" selection-end-line="598" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.93972605" vertical-offset="14098" max-vertical-offset="14916">
+              <caret line="672" column="0" selection-start-line="672" selection-start-column="0" selection-end-line="672" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -60,18 +60,18 @@
       <file leaf-file-name="chapter2.rst" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/chapter2.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4484" max-vertical-offset="5214">
-              <caret line="231" column="0" selection-start-line="231" selection-start-column="0" selection-end-line="231" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5566">
+              <caret line="192" column="0" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chapter3.rst" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="chapter3.rst" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/chapter3.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7589041" vertical-offset="7366" max-vertical-offset="8162">
-              <caret line="360" column="0" selection-start-line="360" selection-start-column="0" selection-end-line="360" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="7212" max-vertical-offset="8360">
+              <caret line="362" column="22" selection-start-line="362" selection-start-column="22" selection-end-line="362" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -90,8 +90,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/docs/chapter2.rst" />
         <option value="$PROJECT_DIR$/docs/chapter3.rst" />
+        <option value="$PROJECT_DIR$/docs/chapter2.rst" />
+        <option value="$PROJECT_DIR$/docs/chapter1.rst" />
       </list>
     </option>
   </component>
@@ -697,26 +698,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/chapter1.rst">
+    <entry file="file://$PROJECT_DIR$/docs/chapter3.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="13107" max-vertical-offset="14432">
-          <caret line="598" column="13" selection-start-line="598" selection-start-column="13" selection-end-line="598" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="7212" max-vertical-offset="8360">
+          <caret line="362" column="22" selection-start-line="362" selection-start-column="22" selection-end-line="362" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/chapter2.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4484" max-vertical-offset="5214">
-          <caret line="231" column="0" selection-start-line="231" selection-start-column="0" selection-end-line="231" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3696" max-vertical-offset="5566">
+          <caret line="192" column="0" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/chapter3.rst">
+    <entry file="file://$PROJECT_DIR$/docs/chapter1.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7589041" vertical-offset="7366" max-vertical-offset="8162">
-          <caret line="360" column="0" selection-start-line="360" selection-start-column="0" selection-end-line="360" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.93972605" vertical-offset="14098" max-vertical-offset="14916">
+          <caret line="672" column="0" selection-start-line="672" selection-start-column="0" selection-end-line="672" selection-end-column="0" />
           <folding />
         </state>
       </provider>

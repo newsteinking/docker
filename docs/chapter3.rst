@@ -360,7 +360,15 @@ Disable the service at boot:
 .
 
 
-3.3.3  user list
+3.3.3  Hostname change
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+I've heard that changing the hostname in new versions of fedora is done with the hostnamectl command.
+In addition, I recently (and successfully) changed my hostname on Arch Linux with this method. However, when running:
+::
+
+    [root@localhost ~]# hostnamectl set-hostname --static paragon.localdomain
+    [root@localhost ~]# hostnamectl set-hostname --transient paragon.localdomain
+    [root@localhost ~]# hostnamectl set-hostname --pretty paragon.localdomain
 
 .

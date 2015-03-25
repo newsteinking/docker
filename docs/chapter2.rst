@@ -188,6 +188,20 @@ variable ROOT_PASS to your specific password when running the container:
     docker run -d -p 0.0.0.0:2222:22 -e ROOT_PASS="1234" tutum/centos
 
 
+tutum wordpress
+https://github.com/tutumcloud/tutum-docker-wordpress.git
+
+.
+
+
+
+
+2.1.5 x11 centos
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
 .
 2.2 Automic run tool
 --------------------------
@@ -226,6 +240,8 @@ setting
     $sudo systemctl disable NetworkManager
     $sudo systemctl restart network
 
-.
+
+under construction ......
+
 
 

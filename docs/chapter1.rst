@@ -645,6 +645,28 @@ and install
 
 .
 
+1.3 Docker image
+------------------------------
 
+1.3.1  From ISO
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+http://failshell.io/docker/building-a-centos-docker-base-image/
+
+* Basic Image 만들기
+yum install febootstrap
+
+::
+
+    febootstrap -i iputils -i vim-minimal -i iproute -i bash -i coreutils -i yum centos centos http://mirror.centos.org/centos/6/os/x86_64 -u http://mirror.centos.org/centos/6/updates/x86_64/
 
 .
+
+[root@banshee ~]# cd centos/
+[root@banshee centos]# tar -c . | docker import - centos
+
+tar -c . | docker import - centos:latest
+
+1.3.2  From docker layer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The images are stored in /var/lib/docker/graph/<id>/layer.
