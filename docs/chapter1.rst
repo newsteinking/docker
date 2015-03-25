@@ -669,4 +669,17 @@ tar -c . | docker import - centos:latest
 1.3.2  From docker layer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The images are stored in /var/lib/docker/graph/<id>/layer.
+save docker image to file
+::
+
+    docker save mynewimage > /tmp/mynewimage.tar
+
+ .
+
+load file to docker image
+::
+
+    docker load < /tmp/mynewimage.tar
+
+.
+    
