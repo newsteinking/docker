@@ -196,9 +196,64 @@ https://github.com/tutumcloud/tutum-docker-wordpress.git
 
 
 
-2.1.5 x11 centos
+2.1.5 firefox docker
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+https://github.com/creack/docker-firefox.git
 
+::
+
+    docker build -t sean/ubuntu:12.04 .
+
+    docker run -d -p 5901:5901 <username>/firefox
+
+.
+
+2.1.6 sameersbn/docker-gitlab
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://github.com/sameersbn/docker-gitlab
+
+Pull the image from the docker index. This is the recommended method of installation as it is easier to update image. These builds are performed by the Docker Trusted Build service.
+::
+
+    docker pull sameersbn/gitlab:7.9.0
+
+
+You can also pull the latest tag which is built from the repository HEAD
+::
+
+    docker pull sameersbn/gitlab:latest
+
+
+Alternately you can build the image locally.
+
+::
+
+    git clone https://github.com/sameersbn/docker-gitlab.git
+    cd docker-gitlab
+    docker build --tag="$USER/gitlab" .
+
+start
+
+::
+
+    docker run --name='gitlab' -it --rm  -e 'GITLAB_PORT=10080' -e 'GITLAB_SSH_PORT=10022'  -p 10022:22 -p 10080:80  -v /var/run/docker.sock:/run/docker.sock  -v $(which docker):/bin/docker -v /lib64/libdevmapper.so.1.02:/usr/lib/libdevmapper.so.1.02 -v /lib64/libudev.so.0:/usr/lib/libudev.so.0  sameersbn/gitlab:7.9.0
+
+error
+libdevmapper.so.1.02: cannot open shared object file....
+
+
+
+It's bug, you can fix it, todo the following:
+::
+
+    [root@[hostname] bin]# cd /lib64/
+    [root@[hostname] lib64]# ln -s /lib64/libdevmapper.so.1.02 /lib64/libdevmapper.so.1.02.1
+    [root@[hostname]# ldconfig
+    [[root@[hostname]# ldconfig -v |grep libdevmapper.so.1.02.1
+    libdevmapper.so.1.02 -> libdevmapper.so.1.02.1
+
+
+.
 
 
 

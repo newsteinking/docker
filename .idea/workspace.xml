@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4fd254a3-8dc8-44be-b982-c1de39ee8d44" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/chapter1.rst" afterPath="$PROJECT_DIR$/docs/chapter1.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/chapter2.rst" afterPath="$PROJECT_DIR$/docs/chapter2.rst" />
     </list>
     <ignored path="docker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,21 +46,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chapter1.rst" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="chapter1.rst" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/chapter1.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.93972605" vertical-offset="14362" max-vertical-offset="15180">
-              <caret line="684" column="4" selection-start-line="684" selection-start-column="4" selection-end-line="684" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="13966" max-vertical-offset="15180">
+              <caret line="676" column="2" selection-start-line="676" selection-start-column="2" selection-end-line="676" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chapter2.rst" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="chapter2.rst" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docs/chapter2.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5566">
-              <caret line="192" column="0" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.47838214" vertical-offset="4915" max-vertical-offset="6776">
+              <caret line="239" column="0" selection-start-line="238" selection-start-column="4" selection-end-line="239" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -89,8 +90,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/docs/chapter3.rst" />
-        <option value="$PROJECT_DIR$/docs/chapter2.rst" />
         <option value="$PROJECT_DIR$/docs/chapter1.rst" />
+        <option value="$PROJECT_DIR$/docs/chapter2.rst" />
       </list>
     </option>
   </component>
@@ -704,18 +705,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/chapter2.rst">
+    <entry file="file://$PROJECT_DIR$/docs/chapter1.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3696" max-vertical-offset="5566">
-          <caret line="192" column="0" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="13966" max-vertical-offset="15180">
+          <caret line="676" column="2" selection-start-line="676" selection-start-column="2" selection-end-line="676" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/chapter1.rst">
+    <entry file="file://$PROJECT_DIR$/docs/chapter2.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.93972605" vertical-offset="14362" max-vertical-offset="15180">
-          <caret line="684" column="4" selection-start-line="684" selection-start-column="4" selection-end-line="684" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.47838214" vertical-offset="4915" max-vertical-offset="6776">
+          <caret line="239" column="0" selection-start-line="238" selection-start-column="4" selection-end-line="239" selection-end-column="0" />
           <folding />
         </state>
       </provider>

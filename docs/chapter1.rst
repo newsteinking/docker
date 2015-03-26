@@ -682,4 +682,3 @@ load file to docker image
     docker load < /tmp/mynewimage.tar
 
 .
-    
