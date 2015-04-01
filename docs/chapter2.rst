@@ -35,6 +35,104 @@ You must add option  -e GUNICORN_OPTS=[--preload]
 .
 Open your browser to http://<dockerd host ip>:9000
 
+angularjs
+
+1.install grunt
+
+::
+
+    sudo npm install -g grunt-cli
+
+2. install yoeman
+::
+
+        sudo  npm install -g yo
+
+
+3. install bower
+::
+
+    sudo  npm install -g bower
+
+4. install angular generator
+::
+
+    sudo npm install -g generator-angular
+
+5. su sean
+::
+
+    $ sudo chonw -R 사용자아이디 ~/.npm
+    $ su sean
+    $ mkdir angularStudy
+    $ cd angularStudy
+    $ yo angular
+
+    $ grunt server
+
+.
+https://github.com/nickholub/angular-dashboard-app
+
+*Running Application
+
+
+    Node.js way
+
+    Install express
+
+      $ npm install express
+
+    Run Node.js server
+
+      $ node app.js
+
+    Application will be available at http://localhost:3000.
+
+    Simple web server way
+
+    Start any web server in "dist" directory, e.g. with Python
+
+      $ python -m SimpleHTTPServer 8080
+
+    Application will be available at http://localhost:8080
+*Running Application (development mode)
+Install dependencies:
+
+    $ npm install
+
+Install Bower dependencies:
+
+    $ bower install
+
+Run Grunt server task:
+
+    $ grunt server
+
+Application will be available at http://localhost:9000
+*Building Application
+
+pplication is built with Grunt.
+
+    $ npm install -g grunt-cli
+    $ grunt
+
+https://github.com/nickholub/angular-real-time-charts
+
+Install dependencies:
+
+$ npm install
+
+Install Bower dependencies:
+
+$ bower install
+
+Start Node.js server:
+
+$ node app
+
+Application will be available at http://localhost:3000
+
+
 
 
 2.1.2 jdeathe/centos-ssh
