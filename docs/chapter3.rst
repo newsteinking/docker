@@ -332,11 +332,11 @@ Check the status:
 
 [stmiller@ny ~]$ sudo systemctl status iperf3
 iperf3.service - iperf3 Service
-   Loaded: loaded (/etc/systemd/system/iperf3.service; disabled)
-   Active: active (running) since Mon 2014-12-08 13:43:49 EST; 18s ago
- Main PID: 32657 (iperf3)
-   CGroup: /system.slice/iperf3.service
-           └─32657 /usr/bin/iperf3 -s
+   Loaded    loaded (/etc/systemd/system/iperf3.service; disabled)
+   Active     active (running) since Mon 2014-12-08 13:43:49 EST; 18s ago
+   Main PID   32657 (iperf3)
+   CGroup    /system.slice/iperf3.service
+             32657 /usr/bin/iperf3 -s
 
 Dec 08 13:43:49 ny.stmiller.org systemd[1]: Started iperf3 Service.
 [stmiller@ny ~]$
