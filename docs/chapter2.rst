@@ -62,7 +62,7 @@ angularjs
 5. su sean
 ::
 
-    $ sudo chonw -R 사용자아이디 ~/.npm
+    $ sudo chonw -R user  ~/.npm
     $ su sean
     $ mkdir angularStudy
     $ cd angularStudy
