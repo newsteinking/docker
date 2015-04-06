@@ -666,7 +666,7 @@ and install
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 http://failshell.io/docker/building-a-centos-docker-base-image/
 
-* Basic Image 만들기
+* Basic Image make 
 yum install febootstrap
 
 ::
