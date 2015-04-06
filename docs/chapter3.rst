@@ -208,6 +208,7 @@ To list only usernames type the following awk command:
 3.3.1  service start
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Stop service:
+
 ::
 
     systemctl stop httpd
