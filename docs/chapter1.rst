@@ -428,6 +428,40 @@ proxy setting
 
 .
 
+* docker login
+## login
+
+    Usage: docker login [OPTIONS] [SERVER]
+
+    Register or log in to a Docker registry server, if no server is
+	specified "https://index.docker.io/v1/" is the default.
+
+      -e, --email=""       Email
+      -p, --password=""    Password
+      -u, --username=""    Username
+
+If you want to login to a self-hosted registry you can specify this by
+adding the server name.
+
+    example:
+    $ sudo docker login localhost:8080
+
+## logout
+
+    Usage: docker logout [SERVER]
+
+    Log out from a Docker registry, if no server is
+	specified "https://index.docker.io/v1/" is the default.
+
+For example:
+
+    $ sudo docker logout localhost:8080
+
+
+
+
+
+
 
 
 * local repository push
@@ -467,6 +501,26 @@ in other machine
     docker pull 103.0.115:5000/centos6
 
 .
+
+vi /etc/sysconfig/docker
+
+add proxy ip
+
+::
+
+    HTTP_PROXY=http://10.3.0.172:8080
+    #HTTP_PROXY=http://10.3.0.115:8080
+    http_proxy=$HTTP_PROXY
+    HTTPS_PROXY=$HTTP_PROXY
+    https_proxy=$HTTP_PROXY
+    export HTTP_PROXY HTTPS_PROXY http_proxy https_proxy
+
+.
+
+
+
+
+
 
 
 *redhat registry
@@ -532,7 +586,22 @@ sample
 
 .
 
+* login
 
+    Usage: docker login [OPTIONS] [SERVER]
+
+    Register or log in to a Docker registry server, if no server is
+	specified "https://index.docker.io/v1/" is the default.
+
+      -e, --email=""       Email
+      -p, --password=""    Password
+      -u, --username=""    Username
+
+If you want to login to a self-hosted registry you can specify this by
+adding the server name.
+
+    example:
+    $ sudo docker login localhost:8080
 
 
 
