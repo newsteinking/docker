@@ -100,6 +100,37 @@ Install dependencies:
 
     $ npm install
 
+stream.js:94
+      throw er; // Unhandled stream error in pipe.
+            ^
+Error: invalid tar file
+
+*install autoconf 2.6.5 by source
+
+./configure --prefix=/usr
+
+make
+
+make check
+
+make install
+
+*install automake 1.14 by source
+
+./configure --prefix=/usr --docdir=/usr/share/doc/automake-1.14.1
+make
+sed -i "s:./configure:LEXLIB=/usr/lib/libfl.a &:" t/lex-{clean,depend}-cxx.sh
+make -j4 check
+make install
+
+
+
+npm install gulp-imagemin@1.0.1
+npm install imagemin@1.0.5
+npm install imagemin-gifsicle@1.0.0
+npm install gifsicle@1.0.2
+
+
 Install Bower dependencies:
 
     $ bower install
@@ -116,21 +147,7 @@ pplication is built with Grunt.
     $ npm install -g grunt-cli
     $ grunt
 
-https://github.com/nickholub/angular-real-time-charts
 
-Install dependencies:
-
-$ npm install
-
-Install Bower dependencies:
-
-$ bower install
-
-Start Node.js server:
-
-$ node app
-
-Application will be available at http://localhost:3000
 
 
 

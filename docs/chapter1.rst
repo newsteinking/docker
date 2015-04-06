@@ -59,17 +59,31 @@ CentOS 7
 
     $ sudo yum install docker
 
-Docker service execution
+Docker service execution  in CentOS 6.5
 
 ::
 
     $ sudo service docker start
 
-auto execution during boot
+auto execution during boot in CentOS 6.5
 
 ::
 
     $ sudo chkconfig docker on
+
+
+Docker service execution  in CentOS 7
+
+::
+
+    $ sudo systemctl list-unit-files --type=service |grep docker
+    $ sudo systemctl enable docker.service
+    $ sudo systemctl start docker.service
+    $ sudo systemctl status docker.service
+
+.
+
+
 
 1.1.2 Mac OS X
 ~~~~~~~~~~~~~~~~~~~~~~~
