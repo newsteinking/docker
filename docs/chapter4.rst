@@ -113,7 +113,52 @@ sean:
 Run grunt for building, grunt serve for preview, and grunt serve:dist for a preview of the built app.
 
 
-4.2.3 mastering angularjs web application
+
+
+
+
+
+
+4.2.3 npm proxy setting
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+npm proxy setting
+::
 
+    npm config set proxy http://xx.xx.xx.xx:8080
+    npm config set https-proxy http://xx.xx.xx.xx:8080
+    npm config set strict-ssl false
+
+.
+
+4.2.4 yoeman
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+https://github.com/yeoman/generator-angular
+
+
+in root
+
+npm install -g grunt-cli bower yo generator-karma generator-angular
+
+in sean
+
+mkdir my-new-project && cd $_
+
+yo angular [app-name]
+
+4.2.5 malhar-dashboard-webapp
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://github.com/DataTorrent/malhar-dashboard-webapp
+
+
+
+https://github.com/the-lay/zabbix-angularjs
+
+sudo npm install  -g grunt-cli
+
+npm install
+
+grunt
+
+grunt serve
