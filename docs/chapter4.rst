@@ -139,13 +139,27 @@ https://github.com/yeoman/generator-angular
 
 in root
 
-npm install -g grunt-cli bower yo generator-karma generator-angular
+npm install -g grunt-cli bower yo generator-karma generator-angular  generator-webapp
+
+or
+sudo  npm install -g grunt-cli bower yo generator-karma generator-angular generator-webapp
 
 in sean
 
 mkdir my-new-project && cd $_
 
 yo angular [app-name]
+
+npm install
+
+grunt
+
+grunt build
+
+grunt server
+
+modified Gruntfile.js  localhost-->10.3.0.115
+
 
 4.2.5 malhar-dashboard-webapp
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -155,10 +169,29 @@ https://github.com/DataTorrent/malhar-dashboard-webapp
 
 https://github.com/the-lay/zabbix-angularjs
 
+
+sean
+rm -rf /home/sean/.npm/*
+
+
 sudo npm install  -g grunt-cli
 
 npm install
 
+npm install phantomjs
+
+bower install
+
 grunt
 
+
+
+
 grunt serve
+
+4.2.6 gerator-cg-angular
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+enterprise generator-angularjs
+https://github.com/cgross/generator-cg-angular
+
+en

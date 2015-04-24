@@ -302,6 +302,8 @@ ref  :https://blog.codecentric.de/en/2014/02/docker-registry-run-private-docker-
 
 https://github.com/lukaspustina/docker-registry-demo
 
+sean ::
+https://github.com/newsteinking/docker_local_repository.git
 ::
 
     $git clone https://github.com/lukaspustina/docker-registry-demo
