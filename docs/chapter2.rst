@@ -369,6 +369,16 @@ It's bug, you can fix it, todo the following:
 
 
 .
+2.1.7 docker registry UI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+https://github.com/atc-/docker-registry-ui
+
+
+
+
+
+
 
 
 
