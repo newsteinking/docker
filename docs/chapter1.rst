@@ -152,6 +152,24 @@ and will make repository file in /data/docker
 
    cannot access if kernel is not upgrade
 
+*KVM issue
+
+(1) As of kernel-ml-3.10.5-1.el6.elrepo, kernel-ml installed as a KVM guest will panic upon booting
+(FATAL: Module scsi_wait_scan not found error). This is because virtio_blk is not in the initramfs.
+More details can be found in:
+
+http://elrepo.org/bugs/view.php?id=401 (external link)
+https://bugzilla.kernel.org/show_bug.cgi?id=60758 (external link)
+
+A workaround is to rebuild initramfs with a "--add-drivers virtio_blk" option. For example:
+
+dracut --add-drivers virtio_blk -f /boot/initramfs-3.10.5-1.el6.elrepo.x86_64.img 3.10.5-1.el6.elrepo.x86_64
+
+dracut --add-drivers virtio_blk -f /boot/initramfs-4.0.0-1.el6.elrepo.x86_64.img 4.0.0-1.el6.elrepo.x86_64
+
+
+
+
 
 1.2.3 docker start error
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
