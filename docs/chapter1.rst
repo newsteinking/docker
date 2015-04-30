@@ -113,6 +113,8 @@ docker-install.exe
 
 * docker default directory change
 
+will create in /var/lib/docker
+
 
 In CentOS 6.5
 
@@ -128,6 +130,7 @@ add following line
 ::
 
     other_args=" -g /data/docker -p /var/run/docker.pid"
+    other_args=" -g /docker/data -p /var/run/docker.pid"
 
 then save the file and start docker again
 
