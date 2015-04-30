@@ -510,5 +510,8 @@ Find out connection made by remote 123.1.2.100:http to our local virtual servers
 # ss dst 123.1.2.100:http
 
 
-3.4.4  tcp
+3.4.4  ulimit setting 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+root soft nofile -1
+root hard nofile -1
