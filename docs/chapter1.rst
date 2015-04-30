@@ -177,7 +177,7 @@ dracut --add-drivers virtio_blk -f /boot/initramfs-3.10.71-1.el6.elrepo.x86_64.i
 
 
 
-*cannot found ko.map
+*cannot found ko.map  XXXX cannot resolve
 
 vi /boot/grub/grub.conf
 
@@ -702,7 +702,7 @@ ref :https://github.com/CentOS/CentOS-Dockerfiles.git
 
 .
 
-1.2.9  ubuntu apt-get error
+1.2.10  ubuntu apt-get error
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Basic
@@ -730,7 +730,7 @@ add following
     sudo apt-get update
 
 .
-1.2.9  docker worker error
+1.2.11  docker worker error
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 when making basic docker registry, you will find following erros
@@ -767,6 +767,23 @@ and install
 
 
 .
+
+1.2.12  docker search proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+add following in /etc/sysconfig/docker
+
+in CentOS 6
+
+export HTTP_PROXY=http://10.3.0.172:8080
+export HTTPS_PROXY=http://10.3.0.172:8080
+
+in CentOS 7
+
+HTTP_PROXY=http://10.3.0.172:8080
+HTTPS_PROXY=http://10.3.0.172:8080
+
+
 
 1.3 Docker image
 ------------------------------
