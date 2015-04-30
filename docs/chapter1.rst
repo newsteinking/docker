@@ -141,6 +141,32 @@ then save the file and start docker again
 
 and will make repository file in /data/docker
 
+In CentOS 7.0
+
+::
+
+    systemctl stop docker.service
+    vi /etc/sysconfig/docker
+
+add following line
+::
+
+    OPTIONS='-g /docker/data -p /var/run/docker.pid'
+
+.
+and service restart
+::
+
+    systemctl start docker.servce
+
+.
+
+
+
+
+
+
+
 1.2.2 Kernel Upgrade 2.6->3.8
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
