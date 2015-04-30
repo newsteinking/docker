@@ -168,7 +168,24 @@ dracut --add-drivers virtio_blk -f /boot/initramfs-3.10.5-1.el6.elrepo.x86_64.im
 dracut --add-drivers virtio_blk -f /boot/initramfs-4.0.0-1.el6.elrepo.x86_64.img 4.0.0-1.el6.elrepo.x86_64
 
 
+dracut --add-drivers virtio_blk -f /boot/initramfs-3.19.1-1.el6.elrepo.x86_64.img 3.19.1-1.el6.elrepo.x86_64
 
+dracut --add-drivers virtio_blk -f /boot/initramfs-3.10.71-1.el6.elrepo.x86_64.img 3.10.71-1.el6.elrepo.x86_64
+
+
+
+*cannot found ko.map
+
+vi /boot/grub/grub.conf
+
+KEYTABLE=ko  ==> KEYTABLE=us
+
+
+
+* zsh
+yum list kernel* xxx
+yum shell
+>list kernel*
 
 
 1.2.3 docker start error

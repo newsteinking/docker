@@ -274,6 +274,10 @@ chkconfig –list (shows what is and isn’t enabled)
 
 
 
+
+
+
+
 3.3.2  add servcie
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
