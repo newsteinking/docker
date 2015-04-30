@@ -510,8 +510,9 @@ Find out connection made by remote 123.1.2.100:http to our local virtual servers
 # ss dst 123.1.2.100:http
 
 
-3.4.4  ulimit setting 
+3.4.4  ulimit setting
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ vi /etc/security/limits.conf
 
-root soft nofile -1
-root hard nofile -1
+maria soft nofile 200000
+maria hard nofile 200000
