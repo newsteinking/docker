@@ -516,3 +516,20 @@ Find out connection made by remote 123.1.2.100:http to our local virtual servers
 
 maria soft nofile 200000
 maria hard nofile 200000
+
+
+3.5 Tmux,vim,airline
+--------------------------------
+
+git clone https://gitbhub.com/newsteinking/centos_tmux_vim.git
+
+
+3.5.1  tmux
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+http://www.dayid.org/os/notes/tm.html
+
+new window creation
+
+CTRL+A, C
+

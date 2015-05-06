@@ -13,11 +13,14 @@ chapter2   docker run
 2.1.1 crosbymichael/dockerui
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-::
+*pre install
 
-    yum install npm
+wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+rpm -Uvh epel-release-7*.rpm
 
-    make install
+yum -y install python-pip
+
+pip install gurnicorn
 
 
 
@@ -35,118 +38,15 @@ You must add option  -e GUNICORN_OPTS=[--preload]
 .
 Open your browser to http://<dockerd host ip>:9000
 
-angularjs
 
-1.install grunt
-
-::
-
-    sudo npm install -g grunt-cli
-
-2. install yoeman
-::
-
-        sudo  npm install -g yo
+in zsh
 
 
-3. install bower
-::
+docker -e GUNICORN_OPTS=[--preload] run  -p 9000:9000 --privileged -v /var/run/docker.sock:/var/run/docker.sock dockerui/dockerui
 
-    sudo  npm install -g bower
+will error
 
-4. install angular generator
-::
-
-    sudo npm install -g generator-angular
-
-5. su sean
-::
-
-    $ sudo chonw -R user  ~/.npm
-    $ su sean
-    $ mkdir angularStudy
-    $ cd angularStudy
-    $ yo angular
-
-    $ grunt server
-
-.
-https://github.com/nickholub/angular-dashboard-app
-
-*Running Application
-
-
-    Node.js way
-
-    Install express
-
-      $ npm install express
-
-    Run Node.js server
-
-      $ node app.js
-
-    Application will be available at http://localhost:3000.
-
-    Simple web server way
-
-    Start any web server in "dist" directory, e.g. with Python
-
-      $ python -m SimpleHTTPServer 8080
-
-    Application will be available at http://localhost:8080
-*Running Application (development mode)
-Install dependencies:
-
-    $ npm install
-
-stream.js:94
-      throw er; // Unhandled stream error in pipe.
-            ^
-Error: invalid tar file
-
-*install autoconf 2.6.5 by source
-
-./configure --prefix=/usr
-
-make
-
-make check
-
-make install
-
-*install automake 1.14 by source
-
-./configure --prefix=/usr --docdir=/usr/share/doc/automake-1.14.1
-make
-sed -i "s:./configure:LEXLIB=/usr/lib/libfl.a &:" t/lex-{clean,depend}-cxx.sh
-make -j4 check
-make install
-
-
-
-npm install gulp-imagemin@1.0.1
-npm install imagemin@1.0.5
-npm install imagemin-gifsicle@1.0.0
-npm install gifsicle@1.0.2
-
-
-Install Bower dependencies:
-
-    $ bower install
-
-Run Grunt server task:
-
-    $ grunt server
-
-Application will be available at http://localhost:9000
-*Building Application
-
-pplication is built with Grunt.
-
-    $ npm install -g grunt-cli
-    $ grunt
-
+zsh: no matches found: GUNICORN_OPTS=[--preload]
 
 
 
