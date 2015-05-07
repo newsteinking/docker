@@ -317,23 +317,31 @@ Next we need to install gunicorn. for this we have (as always) several choices.
 1) Using YUM. I personally don’t recommend it. I know some are happy to use the system packaging management wherever possible, but as for python I don’t think it’s the way to go.
 
 To install gunicorn using yum:
+::
 
-yum install python-gunicorn
+    yum install python-gunicorn
+
 
 2) Using easy_install. using easy_install is a better choice for my taste to install python packages. this is how you install gunicorn using easy_install, but I recommend installing gunicorn using PIP as I will show next…
 
-yum install python-setuptools
-easy_install gunicorn
+::
+
+    yum install python-setuptools
+    easy_install gunicorn
 
 3) Using PIP: This is my RECOMMENDED way of installing gunicorn. to install PIP you actually need easy_install so the commands are:
 
-yum install python-setuptools
-easy_install pip
-pip install gunicorn
+::
+
+    yum install python-setuptools
+    easy_install pip
+    pip install gunicorn
+
+.
 
 
 
-*   intall from source 
+*   intall from source
 
 ::
 
@@ -384,6 +392,9 @@ source install
     pip install gunicorn
 
 .
+
+
+
 
 1.2.7  make a private registry
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

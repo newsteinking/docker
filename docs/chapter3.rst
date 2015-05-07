@@ -518,7 +518,7 @@ maria soft nofile 200000
 maria hard nofile 200000
 
 
-3.5 Tmux,vim,airline
+3.5 zsh,Tmux,vim,airline
 --------------------------------
 
 git clone https://gitbhub.com/newsteinking/centos_tmux_vim.git
@@ -533,3 +533,28 @@ new window creation
 
 CTRL+A, C
 
+3.5.2  zsh back space not working
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+vi ~/.zshrc
+
+and add following
+
+::
+
+    export TERM=xterm
+
+    or
+
+    export TERM=xterm-256color
+
+.
+3.5.3  tmux synchronize with pane
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+CTRL+A,shift+:
+
+command mode
+:setw synchronize-panes on
+
+:setw synchronize-panes off 

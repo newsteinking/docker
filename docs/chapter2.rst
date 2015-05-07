@@ -32,8 +32,9 @@ Container Quickstart
 You must add option  -e GUNICORN_OPTS=[--preload]
 ::
 
-    docker run -d -p 9000:9000 --privileged -v /var/run/docker1.sock:/var/run/docker1.sock dockerui/dockerui ==>
+    docker run -d -p 9000:9000 --privileged -v /var/run/docke1r.sock:/var/run/docker1.sock dockerui/dockerui ==>
     docker -e GUNICORN_OPTS=[--preload] run  -p 9000:9000 --privileged -v /var/run/docker.sock:/var/run/docker.sock dockerui/dockerui
+
 
 .
 Open your browser to http://<dockerd host ip>:9000
@@ -41,18 +42,82 @@ Open your browser to http://<dockerd host ip>:9000
 
 in zsh
 
+::
 
-docker -e GUNICORN_OPTS=[--preload] run  -p 9000:9000 --privileged -v /var/run/docker.sock:/var/run/docker.sock dockerui/dockerui
+    docker  run  -p 9000:9000   -e GUNICORN_OPTS=[--preload]  -v /var/run/docker.sock:/var/run/docker.sock dockerui/dockerui
 
 will error
 
 zsh: no matches found: GUNICORN_OPTS=[--preload]
 
+and change as following
+
+::
+
+    docker  run  -p 9000:9000   -e="GUNICORN_OPTS=[--preload]" -v /var/run/docker.sock:/var/run/docker.sock dockerui/dockerui
+
+.
+
+
+2.1.2 OS3Infotech/dockerui
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+https://github.com/OS3Infotech/dockerui
+
+
+Step 1
+
+Configure CORS Request :
+
+To enable cross origin requests to the remote api add the flag "–api-enable-cors" when running docker in daemon mode.
+
+vim /etc/default/docker
+
+Copy paste below line to /etc/default/docker at end
+
+DOCKER_OPTS="-H unix:///var/run/docker.sock -H tcp://0.0.0.0:4243 -api-enable-cors"
+
+Restart the Docker Service
+
+service docker start
+
+Step 2
+
+Pull the latest image:
+
+docker pull madhavkobal/dockerui:latest
+
+Step 3
+
+If you're running Docker using a unix socket (default):
+::
+
+    docker run -d -p 9999:9999 -v /var/run/docker.sock:/docker.sock \
+    --name dockerui madhavkobal/dockerui:latest -e="/docker.sock"
+
+
+If you're running Docker over tcp:
+
+docker run -d -p 9999:9999 --name dockerui \
+madhavkobal/dockerui:latest -e="http://<docker_host_ip>:4243"
+
+Step 4
+
+Open your browser to `http://localhost:9999`
+Or
+Open your browser to `http://<dockerd host ip>:9999`
+
+If you're running Docker using go server:
+
+Extract your downloaded zip file dockerui-master.
+Run go server using :
+ go run dockerui.go
+ Open your browser to `http://localhost:9999`
 
 
 
 
-2.1.2 jdeathe/centos-ssh
+2.1.3 jdeathe/centos-ssh
 ~~~~~~~~~~~~~~~~~~~~~~~
 https://github.com/jdeathe/centos-ssh
 
@@ -137,7 +202,7 @@ OK
 
 
 .
-2.1.3 dockerfiles-centos-ssh
+2.1.4 dockerfiles-centos-ssh
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 https://github.com/CentOS/CentOS-Dockerfiles/tree/master/ssh/centos6
@@ -168,7 +233,7 @@ To test, use the port that was just located:
 OK
 
 
-2.1.4 tutum-centos
+2.1.5 tutum-centos
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 https://github.com/tutumcloud/tutum-centos
 
@@ -211,7 +276,7 @@ https://github.com/tutumcloud/tutum-docker-wordpress.git
 
 
 
-2.1.5 firefox docker
+2.1.6 firefox docker
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 https://github.com/creack/docker-firefox.git
 
@@ -223,7 +288,7 @@ https://github.com/creack/docker-firefox.git
 
 .
 
-2.1.6 sameersbn/docker-gitlab
+2.1.7 sameersbn/docker-gitlab
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 https://github.com/sameersbn/docker-gitlab
 
@@ -269,7 +334,7 @@ It's bug, you can fix it, todo the following:
 
 
 .
-2.1.7 docker registry UI
+2.1.8 docker registry UI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 https://github.com/atc-/docker-registry-ui
