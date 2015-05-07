@@ -23,6 +23,6 @@ Thanks to
 SEAN's Paradise
 ----------------------
 
-I think that My Life as Software Engineer was torrible , but it's role fo social is important
+I think that My Life as Software Engineer was torrible , but it's role for social is important
 so, I keep going for better life & software development
 

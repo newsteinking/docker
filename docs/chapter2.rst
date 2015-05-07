@@ -201,7 +201,7 @@ To connect to the running container use:
 OK
 
 
-.
+
 2.1.4 dockerfiles-centos-ssh
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -334,6 +334,7 @@ It's bug, you can fix it, todo the following:
 
 
 .
+
 2.1.8 docker registry UI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

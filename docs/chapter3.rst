@@ -166,6 +166,8 @@ On Client side
     $htc -P 10.77.241.121:80 -F 80 10.77.241.121:80
 
 .
+
+
 3.2.6  Linux Route add
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -187,6 +189,8 @@ delete
     route del -net 10.77.212.0/24
 
 .
+
+
 3.2.7  user list
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Task: Linux List Users Command
@@ -204,6 +208,7 @@ To list only usernames type the following awk command:
 
 3.3 CentOS7,RHEL7,Fedora 21
 --------------------------------
+
 
 3.3.1  service start
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -549,6 +554,8 @@ and add following
     export TERM=xterm-256color
 
 .
+
+
 3.5.3  tmux synchronize with pane
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -557,4 +564,4 @@ CTRL+A,shift+:
 command mode
 :setw synchronize-panes on
 
-:setw synchronize-panes off 
+:setw synchronize-panes off
