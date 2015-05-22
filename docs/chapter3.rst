@@ -523,6 +523,41 @@ maria soft nofile 200000
 maria hard nofile 200000
 
 
+3.4.4  mtu size 변경
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ifconfig eth0 mtu 1450
+
+
+3.4.5  echo command, sed -i 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+change all
+::
+
+    echo 'This text is now in a text file.' >  textfile.txt
+
+
+add
+::
+
+    echo 'This text is now in a text file.' >> textfile.txt
+
+
+exchange
+::
+
+    sed -i 's/enforcing/disabled/g' /etc/selinux/config
+    echo 0 > /sys/fs/selinux/enforce
+
+
+
+.
+
+
+
+
+
 3.5 zsh,Tmux,vim,airline
 --------------------------------
 
