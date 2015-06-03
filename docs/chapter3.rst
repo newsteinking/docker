@@ -528,6 +528,8 @@ maria hard nofile 200000
 
 ifconfig eth0 mtu 1450
 
+ *** sftp not working
+
 
 3.4.5  echo command, sed -i 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -553,8 +555,9 @@ exchange
 
 
 .
-
-
+3.4.6  image root password 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://access.redhat.com/discussions/664843
 
 
 
