@@ -81,7 +81,7 @@ class { 'mongodb::server':
 
 * mongodb error
 Error: Unable to connect to mongodb server
-vi /etc/monogodb.conf
+vi /etc/monogod.conf
 #bind_ip = 127.0.0.1
 bind_ip = 10.77.241.120
 
