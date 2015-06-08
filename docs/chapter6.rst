@@ -64,12 +64,36 @@ http://naleejang.tistory.com/139
 
 
 
-6.2 route
+6.2 packstack install
 ------------------------
 
+vi /usr/lib/python2.7/site-packages/packstack/puppet/templates/mongodb.pp
+
+I've found that adding the pid filepath to /usr/lib/python2.7/site-packages/packstack/puppet/templates/mongodb.pp works as a workaround.
+
+I added the pidfilepath line.
+
+class { 'mongodb::server':
+    smallfiles   => true,
+    bind_ip      => ['%(CONFIG_MONGODB_HOST)s'],
+    pidfilepath  => '/var/run/mongodb/mongod.pid',
+}
+
+* cinder mysql access
+1.mysql -u root
+2.
+   SELECT User, Host, Password FROM mysql.user;
+
+3.
+grant all privileges on *.* to  cinder@'%' identified by '028F8298C041368BA08A280AA8D1EF895CB68D5C' with grant option;
+
+flush privileges;
 
 
+<cinder>
+ /etc/cinder/cinder.conf
 
+connection=mysql://cinder:028F8298C041368BA08A280AA8D1EF895CB68D5C@10.77.241.120/cinder
 
 
 

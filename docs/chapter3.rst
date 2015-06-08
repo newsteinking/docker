@@ -555,7 +555,7 @@ exchange
 
 
 .
-3.4.6  image root password 
+3.4.6  image root password
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 https://access.redhat.com/discussions/664843
 
