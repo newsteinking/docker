@@ -265,6 +265,13 @@ openstack-keystone.service disabled
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 http://docs.openstack.org/admin-guide-cloud/content/admin-password-injection.html
 
+vi /etc/openstack-dashboard/local_settings
+
+OPENSTACK_HYPERVISOR_FEATURE = {
+...
+    'can_set_password': False, ==>True
+}
+
 systemctl restart httpd.service
 
 
@@ -284,10 +291,29 @@ public_interface="eth1"
 
 # the pool from which floating IPs are taken by default
 default_floating_pool="pub"
+systemctl restart openstack-nova-compute.service
 
 6.3.6 firewall
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 http://docs.openstack.org/admin-guide-cloud/content/install_neutron-fwaas-agent.html
+
+vi /etc/neutron/neutron.conf
+
+service_plugins = firewall
+[service_providers]
+...
+service_provider = FIREWALL:Iptables:neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver:default
+
+[fwaas]
+driver = neutron_fwaas.services.firewall.drivers.linux.iptables_fwaas.IptablesFwaasDriver
+enabled = True
+
+vi /etc/openstack-dashboard/local_settings
+
+
+'enable_firewall' = True
+
+systemctl restart neutron-l3-agent.service neutron-server.service httpd.service
 
 6.3.7 mariadb delete
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
