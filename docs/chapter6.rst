@@ -257,5 +257,41 @@ openstack-keystone.service disabled
 >show tables;
 >delete from services where id=3;
 
+* mysql initailize
 
 
+
+6.3.4 dashboard password
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+http://docs.openstack.org/admin-guide-cloud/content/admin-password-injection.html
+
+systemctl restart httpd.service
+
+
+
+6.3.5 floating ip ==>nova
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://www.mirantis.com/blog/configuring-floating-ip-addresses-networking-openstack-public-private-clouds/
+
+nova floating-ip-pool-list
+
+nova-manage floating create --ip_range=  --pool POOL_NAME
+
+
+vi /etc/nova/nova.conf
+
+public_interface="eth1"
+
+# the pool from which floating IPs are taken by default
+default_floating_pool="pub"
+
+6.3.6 firewall
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+http://docs.openstack.org/admin-guide-cloud/content/install_neutron-fwaas-agent.html
+
+6.3.7 mariadb delete
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+yum list maria*
+
+yum remove mariadb.x86_64 mariadb-galera-common.x86_64 mariadb-galera-server.x86_64 mariadb-libs.x86_64
