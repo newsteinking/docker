@@ -560,6 +560,15 @@ exchange
 https://access.redhat.com/discussions/664843
 
 
+3.4.7  CentOS 7 Virtuabox gest
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Virtualbox guest additions install in CentOS 7
+
+there is no version.h
+
+cp -v /usr/include/linux/version.h /lib/modules/3.10.0-229.4.2.el7.x86_64/build/include/linux
+
+
 
 3.5 zsh,Tmux,vim,airline
 --------------------------------
@@ -603,3 +612,7 @@ command mode
 :setw synchronize-panes on
 
 :setw synchronize-panes off
+
+
+
+

@@ -214,8 +214,14 @@ source ~/root/keystone_admin.cfg
 vi ~/packstack_sean.cfg
 
 CONFIG_REPO   // no url add, if you add url ,first refer this  add rdo , centos7 ,epel
+CONFIG_REPO=http://10.77.241.121/repos/openstack7/rdo,http://10.77.241.121/repos/centos7
+
 
 https://copr-be.cloud.fedoraproject.org/results/mantid/mantid/epel-7-x86_64/pyparsing-2.0.1-3.el7.centos/
+
+
+
+
 
 *python-cmd2-0.6.7-5.el7.centos.noarch
 
