@@ -165,6 +165,11 @@ mysql -e "update services set deleted = 1 where host like 'bm0601%' and disabled
 
 yum install -y openstack-packstack
 
+yum install -y screen traceroute bind-utils
+
+yum install -y openstack-utils
+
+
 
 packstack --gen-answer-file=/root/packstack_openstack.cfg
 
