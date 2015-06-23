@@ -163,17 +163,19 @@ mysql -e "update services set deleted = 1 where host like 'bm0601%' and disabled
 6.3 packstack install
 ------------------------
 
-yum install -y openstack-packstack
+yum install -y openstack-packstack  openstack-utils
 
 yum install -y screen traceroute bind-utils
 
-yum install -y openstack-utils
+
 
 
 
 packstack --gen-answer-file=/root/packstack_openstack.cfg
 
 packstack --answer-file=/root/packstack_openstack.cfg
+
+
 
 
 vi /usr/lib/python2.7/site-packages/packstack/puppet/templates/mongodb.pp
@@ -190,7 +192,7 @@ class { 'mongodb::server':
 
 * mongodb error
 Error: Unable to connect to mongodb server
-vi /etc/monogod.conf
+vi /etc/mongod.conf
 #bind_ip = 127.0.0.1
 bind_ip = 10.77.241.120
 
@@ -332,3 +334,42 @@ systemctl restart neutron-l3-agent.service neutron-server.service httpd.service
 yum list maria*
 
 yum remove mariadb.x86_64 mariadb-galera-common.x86_64 mariadb-galera-server.x86_64 mariadb-libs.x86_64
+
+6.3.8 juno network setting
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://cloudssky.com/en/blog/RDO-OpenStack-Juno-ML2-VXLAN-2-Node-Deployment-On-CentOS-7-With-Packstack/
+
+br-ex port delete
+>ovs-vsctl del-port br-ex eth0
+
+#neutron subnet-create osxnet 10.3.4.0/24 --name osx_subnet --dns-nameserver 8.8.8.8
+# source keystonerc_osx
+# neutron net-create osxnet
+
+# neutron subnet-create osxnet 192.168.32.0/24 --name osx_subnet --dns-nameserver 8.8.8.8
+# neutron net-create ext_net --router:external=True
+
+# neutron subnet-create --gateway 10.3.4.4 --disable-dhcp --allocation-pool start=10.3.4.100,end=10.3.4.200 ext_net 10.3.4.0/24 --name ext_subnet
+
+# neutron router-create router_osx
+# neutron router-interface-add router_osx osx_subnet
+# neutron router-gateway-set router_osx ext_net
+
+* router down
+neutron router-port-list router_osx
+neutron port-show 6f626532-6deb-4765-9490-349e5ae42f6a
+
+
+* key stone add
+
+[root@controller ~(keystone_admin)]# keystone tenant-create --name osx
+[root@controller ~(keystone_admin)]# keystone user-create --name osxu --pass secret
+[root@controller ~(keystone_admin)]# keystone user-role-add --user osxu --role admin --tenant osx
+[root@controller ~(keystone_admin)]# cp keystonerc_admin keystonerc_osx
+[root@controller ~(keystone_admin)]# vi keystonerc_osx
+
+6.3.9 vm network problem 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* open stack vm network problem
+
+host public ip 10.3.4.4  add GATEWAY=10.3.4.1
