@@ -625,3 +625,7 @@ https://www.rdoproject.org/Helium_OpenDaylight_Juno_OpenStack
 https://wiki.opendaylight.org/view/OVSDB:Helium_and_Openstack_on_Fedora20#VMs
 
 
+opendaylight litium
+
+https://wiki.opendaylight.org/view/OpenDaylight_DLUX:DLUX_Karaf_Feature
+

@@ -552,6 +552,33 @@ exchange
     sed -i 's/enforcing/disabled/g' /etc/selinux/config
     echo 0 > /sys/fs/selinux/enforce
 
+# Add the odl user to sudoers so you don't have to keep entering a password.
+# All the ovs commmands require sudo.
+echo "odl        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
+
+# Disable selinux to avoid any problems
+setenforce 0
+sed -i -e 's/SELINUX=enforcing/SELINUX=permissive/g' /etc/selinux/config
+
+cd /etc/sysconfig/network-scripts
+sed -i -e 's/^BOOTPROTO.*$/BOOTPROTO=none/' ifcfg-eth0
+sed -i -e 's/^BOOTPROTO.*$/BOOTPROTO=none/' ifcfg-eth1
+sed -i -e 's/^BOOTPROTO.*$/BOOTPROTO=none/' ifcfg-eth2
+sed -i -e 's/^ONBOOT.*$/ONBOOT=yes/' ifcfg-eth1
+sed -i -e 's/^ONBOOT.*$/ONBOOT=yes/' ifcfg-eth2
+sed -i -e 's/^UUID/#UUID/' ifcfg-eth0
+sed -i -e 's/^UUID/#UUID/' ifcfg-eth1
+sed -i -e 's/^UUID/#UUID/' ifcfg-eth2
+echo "IPADDR=$ipaddr" >> ifcfg-eth2
+echo "NETMASK=255.255.255.0" >> ifcfg-eth2
+echo "GATEWAY=192.168.120.1" >> ifcfg-eth2
+echo "DNS1=192.168.1.1" >> ifcfg-eth2
+
+# Add nodes in the setup to the hosts files.
+hostnamectl set-hostname fedora31
+echo "192.168.120.31 fedora31" >> /etc/hosts
+echo "192.168.120.32 fedora32" >> /etc/hosts
+
 
 
 .
