@@ -618,6 +618,94 @@ route add -net 192.168.32.0/24 gw 10.3.4.100
 
 10.3.4.4->10.3.4.100->192.168.32.1  Ok
 
+6.3.15 openstack Allinone
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+packstack_uninstall.sh
+
+* httpd.service error
+mv 10-keystone_wsgi_admin.conf 10-keystone_wsgi_admin.conf.back
+mv 10-keystone_wsgi_main.conf 10-keystone_wsgi_main.conf.back
+
+and  systemctl start httpd.service
+
+
+6.3.16 openstack Neutron
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# source keystonerc_osx
+# neutron net-create osxnet
+# neutron subnet-create osxnet 192.168.32.0/24 --name osx_subnet --dns-nameserver 8.8.8.8
+# neutron net-create ext_net --router:external=True
+
+# neutron subnet-create --gateway 10.3.4.1 --disable-dhcp --allocation-pool start=10.3.4.100,end=10.3.4.200 ext_net 10.3.4.0/24 --name ext_subnet
+neutron subnet-create   --disable-dhcp --allocation-pool start=10.3.4.100,end=10.3.4.200 ext_net 10.3.4.0/24 --name ext_subnet
+
+
+# neutron router-create router_osx
+# neutron router-interface-add router_osx osx_subnet
+# neutron router-gateway-set router_osx ext_net
+
+
+
+vi /root/allinone-answers.cfg
+
+CONFIG_NEUTRON_OVS_VLAN_RANGES=physnet1:10:20
+CONFIG_NEUTRON_OVS_BRIDGE_MAPPINGS=physnet1:br-ex
+
+
+
+
+vi /etc/sysconfig/network-scripts/ifcfg-br-ex
+DEVICE=br-ex
+DEVICETYPE=ovs
+TYPE=OVSBridge
+BOOTPROTO=none
+IPADDR=10.20.0.20
+NETMASK=255.255.255.0
+GATEWAY=10.20.0.1
+DNS1=8.8.8.8
+DNS2=8.8.4.4
+ONBOOT=yes
+
+vi /etc/sysconfig/network-scripts/ifcfg-eth0
+DEVICE=eth0
+TYPE=OVSPort
+DEVICETYPE=ovs
+OVS_BRIDGE=br-ex
+NM_CONTROLLED=no
+ONBOOT=yes
+IPV6INIT=no
+USERCTL=no
+
+vi /etc/neutron/l3_agent.ini
+external_network_bridge = br-ens8
+
+ip link set br-ens8 promisc on
+
+
+* router iptables problem
+
+ip netns
+ip netns exec qrouter-742cd9c5-de1d-409e-a138-e120f2658222 iptables -S -t nat
+ip netns exec qrouter-742cd9c5-de1d-409e-a138-e120f2658222 vi /etc/sysconfig/iptables
+
+add security rule all icmp,tcp,udp,ssh for default rule
+* key point
+ip link set br-ens8 promisc on
+
+ip netns exec qrouter-f39e7f50-5113-414c-98fa-a94dd7976c57 ip link set qg-6b9a9a40-d7 promisc on
+
+
+
+
+*DVR (Distributed Virtual Router)
+Before Juno, when we deploy Openstack in production, there always is a painful point about L3 Agent:
+High availability and performance bottleneck
+
+
+
+
 6.4 OpenStack Juno +OpenDaylight Helium
 -------------------------------------------
 
