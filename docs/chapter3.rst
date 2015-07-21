@@ -64,7 +64,10 @@ change kernel booting sequence
 
 
 .
+3.1.5 fstab error
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+mount -o remount,rw /
 
 
 3.2 Package Install
@@ -596,6 +599,14 @@ there is no version.h
 cp -v /usr/include/linux/version.h /lib/modules/3.10.0-229.4.2.el7.x86_64/build/include/linux
 
 yum install kernel-devel-3.10.0-229.4.2.el7.x86_64
+
+
+
+
+
+
+
+
 
 
 3.5 zsh,Tmux,vim,airline

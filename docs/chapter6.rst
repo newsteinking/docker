@@ -118,6 +118,7 @@ source ~/root/keystone_admin.cfg
 
 3.
 grant all privileges on *.* to  cinder@'%' identified by '028F8298C041368BA08A280AA8D1EF895CB68D5C' with grant option;
+grant all privileges on *.* to  cinder@'%' identified by 'root01' with grant option;
 
 flush privileges;
 
@@ -159,6 +160,10 @@ cinder type-list
 *service disable
 cinder service-disable  xxx
 mysql -e "update services set deleted = 1 where host like 'bm0601%' and disabled = 1 " cinder
+
+
+
+
 
 6.3 packstack install
 ------------------------
@@ -271,6 +276,7 @@ openstack-keystone.service disabled
 >use cinder;
 >show tables;
 >delete from services where id=3;
+delete from volumes where size=2;
 
 * mysql initailize
 
@@ -694,6 +700,8 @@ add security rule all icmp,tcp,udp,ssh for default rule
 * key point
 ip link set br-ens8 promisc on
 
+ip netns exec qrouter-f39e7f50-5113-414c-98fa-a94dd7976c57 ifconfig
+ip netns exec qrouter-f39e7f50-5113-414c-98fa-a94dd7976c57 ip link set qg-6b9a9a40-d7 promisc on
 ip netns exec qrouter-f39e7f50-5113-414c-98fa-a94dd7976c57 ip link set qg-6b9a9a40-d7 promisc on
 
 
@@ -703,6 +711,321 @@ ip netns exec qrouter-f39e7f50-5113-414c-98fa-a94dd7976c57 ip link set qg-6b9a9a
 Before Juno, when we deploy Openstack in production, there always is a painful point about L3 Agent:
 High availability and performance bottleneck
 
+6.3.17 openstack Cinder
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+openstack cinder does not work in box, it need physical volume
+
+
+*tgt
+yum install scsi-target-utils
+
+vi /etc/tgt/targets.conf
+
+include /etc/cinder/volumes/*
+
+vi /etc/cinder/cinder.conf
+enabled_backends=lvmdriver-1,lvmdriver-2
+
+[lvmdriver-1]
+volume_group=cinder-volumes-1
+volume_driver=cinder.volume.drivers.lvm.LVMISCSIDriver
+volume_backend_name=LVM_iSCSI1
+
+[lvmdriver-2]
+volume_group=cinder-volumes-2
+volume_driver=cinder.volume.drivers.lvm.LVMISCSIDriver
+volume_backend_name=LVM_iSCSI2
+
+$ cinder type-create lvm1
+cinder type-create lvm2
+$ cinder type-key lvm1 set volume_backend_name=LVM_iSCSI1
+cinder type-key lvm2 set volume_backend_name=LVM_iSCSI2
+$ cinder extra-specs-list (just to check the settings are there)
+
+
+systemctl enable tgtd.service
+systemctl start tgtd.service
+
+
+Define an iscsi target name
+tgtadm --lld iscsi --op new --mode target --tid 1 -T  iqn.2015-07.10.3.0.104:storage.disk1
+
+tgtadm --lld iscsi --op show --mode target
+
+tgtadm --lld iscsi --op new --mode logicalunit --tid 1 --lun 1 -b /dev/vdb
+
+acl setting
+tgtadm --lld iscsi --mode target --op bind --tid 1 -I ALL            // ALL
+tgtadm --lld iscsi --mode target --op bind --tid 1 -I 192.168.2.48   //for special ip
+tgtadm --lld iscsi --mode target --op bind --tid 1 -I 10.3.0.0/24    // area
+
+tgtadm --lld iscsi --op new --mode target --tid 2 -T  iqn.2015-07.10.3.0.104:storage.disk2
+tgtadm --lld iscsi --op new --mode logicalunit --tid 2 --lun 1 -b /dev/vdc
+
+tgtadm --lld iscsi --mode account --op new --user ''tom'' --password ''tom''
+
+
+
+*file disk
+dd if=/dev/zero of=/fs.iscsi.disk bs=1M count=512
+tgtadm --lld iscsi --op new --mode logicalunit --tid 0 --lun 1 -b /fs.iscsi.disk
+
+
+tgtadm --lld iscsi --mode target --op show
+
+netstat -tulpn | grep 3260
+
+
+
+iscsiadm --mode discovery --type sendtargets --portal 10.3.0.104
+not working properly
+*iscsi initiator
+
+ [root@www ~]# yum -y install iscsi-initiator-utils
+[root@www ~]# vi /etc/iscsi/initiatorname.iscsi
+# change to the same IQN you set on the iSCSI target server
+
+InitiatorName=iqn.2014-12.world.server:www.server.world
+[root@www ~]# vi /etc/iscsi/iscsid.conf
+# line 54: uncomment
+
+node.session.auth.authmethod = CHAP
+# line 58,59: uncomment and specify the username and password you set on the iSCSI target server
+
+node.session.auth.username = username
+
+node.session.auth.password = password
+[root@www ~]# systemctl start iscsid
+
+[root@www ~]# systemctl enable iscsid
+# discover target
+
+[root@www ~]# iscsiadm -m discovery -t sendtargets -p 10.3.0.104
+
+10.0.0.30:3260,1 iqn.2014-12.world.server:storage.target00
+
+# confirm status after discovery
+
+[root@www ~]# iscsiadm -m node -o show
+
+# BEGIN RECORD 6.2.0.873-24
+node.name = iqn.2014-12.world.server:storage.target00
+node.tpgt = 1
+node.startup = automatic
+node.leading_login = No
+...
+...
+...
+node.conn[0].iscsi.IFMarker = No
+node.conn[0].iscsi.OFMarker = No
+# END RECORD
+
+# login to the target
+
+[root@www ~]# iscsiadm -m node --login
+
+Logging in to [iface: default, target: iqn.2014-12.world.server:storage.target00, portal: 10.0.0.30,3260] (multiple)
+Login to [iface: default, target: iqn.2014-12.world.server:storage.target00, portal: 10.0.0.30,3260] successful.
+
+# confirm the established session
+
+[root@www ~]# iscsiadm -m session -o show
+
+tcp: [1] 10.0.0.30:3260,1 iqn.2014-12.world.server:storage.target00 (non-flash)
+# confirm the partitions
+
+[root@www ~]# cat /proc/partitions
+
+major minor  #blocks  name
+
+  11        0    1999872 sr0
+   8        0  157286400 sda
+   8        1     512000 sda1
+   8        2  156773376 sda2
+ 253        0   52428800 dm-0
+ 253        1    6225920 dm-1
+ 253        2   98050048 dm-2
+   8       16   20971520 sdb
+
+***
+
+vi /etc/cinder/cinder.conf
+enabled_backends=lvmdriver-1
+
+[lvmdriver-1]
+volume_group=cinder-volumes-1
+volume_driver=cinder.volume.drivers.lvm.LVMISCSIDriver
+volume_backend_name=LVM_iSCSI1
+
+
+pvcreate /dev/vdb
+pvcreate /dev/sda
+
+
+vgcreate cinder-volumes-1 /dev/vdb
+vgcreate cinder-volumes-2 /dev/sda
+
+
+systemctl restart openstack-cinder-volume.service
+
+
+$ cinder type-create lvm1
+$ cinder type-key lvm1 set volume_backend_name=LVM_iSCSI1
+
+$ cinder type-create lvm_vdb
+$ cinder type-key lvm_vdb set volume_backend_name=lvm_vdb
+
+$ cinder type-create lvm_sda
+$ cinder type-key lvm_sda set volume_backend_name=lvm_sda
+
+
+systemctl restart openstack-cinder-api.service openstack-cinder-backup.service openstack-cinder-scheduler.service  openstack-cinder-volume.service
+
+
+cinder type-list
+cinder extra-specs-list
+
+
+
+
+
+6.3.17 openstack Cinder with Glusterfs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+http://www.unixmen.com/install-glusterfs-server-client-centos-7/
+http://slidedeck.io/jbernard/cinder-configuration
+
+* On controller
+
+yum install glusterfs-fuse
+
+vi /etc/cinder/cinder.conf
+enabled_backends=cindervol1,cindervol2
+
+[cindervol1]
+volume_backend_name=GLUSTER1
+volume_driver=cinder.volume.drivers.glusterfs.GlusterfsDriver
+glusterfs_shares_config=/etc/cinder/shares.conf
+glusterfs_mount_point_base=/var/lib/cinder/mnt/gluster1
+
+[cindervol2]
+volume_backend_name=GLUSTER2
+volume_driver=cinder.volume.drivers.glusterfs.GlusterfsDriver
+glusterfs_shares_config=/etc/cinder/shares.conf
+glusterfs_mount_point_base=/var/lib/cinder/mnt/gluster2
+
+$ cinder type-create gfsvol1
+$ cinder type-key gfsvol1 set volume_backend_name=GLUSTER1
+$ cinder type-create gfsvol2
+$ cinder type-key gfsvol2 set volume_backend_name=GLUSTER2
+
+$ cinder extra-specs-list (just to check the settings are there)
+
+
+
+
+$ cinder type-create lvm
+$ cinder type-key lvm set volume_backend_name=LVM_iSCSI
+$ cinder extra-specs-list (just to check the settings are there)
+
+
+
+vi /etc/cinder/shares.conf
+
+OpenStackServer3:cindervol1
+OpenStackServer3:cindervol2
+
+* Gluster Host
+
+gluster peer probe OpenStackServer1
+gluster peer probe OpenStackServer3
+
+gluster pool list
+
+
+>gluster
+volume create cindervol1 rep 2 transport tcp OpenStackServer3:/var/lib/cinder/volumes OpenStackServer1:/var/lib/cinder/cindervol1 force
+volume start cindervol1
+
+volume create cindervol2 rep 2 transport tcp OpenStackServer3:/var/lib/cinder/volumes2 OpenStackServer1:/var/lib/cinder/cindervol2 force
+volume start cindervol2
+
+Create mount point and mount the volume on both nodes:
+
+[root@glusterfs1 ~]# mount -t glusterfs OpenStackServer3:/cindervol1 /var/lib/cinder/mnt/gluster1/
+
+[root@glusterfs2 ~]# mount -t glusterfs OpenStackServer3:/cindervol1 /var/lib/cinder/mnt/gluster1/
+
+
+
+systemctl restart openstack-cinder-volume.service
+
+test
+cinder create --display-name test 2
+cinder create --display-name test2 2
+
+6.3.18 openstack Cinder with cindervolumes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+# create new
+
+[DEFAULT]
+state_path=/var/lib/cinder
+api_paste_config=api-paste.ini
+enable_v1_api=true
+osapi_volume_listen=0.0.0.0
+osapi_volume_listen_port=8776
+rootwrap_config=/etc/cinder/rootwrap.conf
+auth_strategy=keystone
+# specify Glance server
+
+glance_host=10.3.0.102
+glance_port=9292
+# specify RabbitMQ server
+
+rabbit_host=10.3.0.102
+rabbit_port=5672
+# RabbitMQ user for auth
+
+#rabbit_userid=guest
+rabbit_userid=guest
+
+# RabbitMQ user's password for auth
+
+rabbit_password=guest
+rpc_backend=rabbit
+# specify iSCSI target (it's just the own IP)
+
+iscsi_ip_address=10.3.0.104
+iscsi_port=3260
+iscsi_helper=tgtadm
+scheduler_driver=cinder.scheduler.filter_scheduler.FilterScheduler
+volume_manager=cinder.volume.manager.VolumeManager
+volume_api_class=cinder.volume.api.API
+volumes_dir=$state_path/volumes
+# auth info for MariaDB
+
+[database]
+connection=mysql://cinder:password@10.3.0.102/cinder
+# auth info for Keystone
+
+[keystone_authtoken]
+auth_host=10.3.0.102
+auth_port=35357
+auth_protocol=http
+admin_user=cinder
+#admin_password=servicepassword
+admin_password=
+admin_tenant_name=service
+
+6.3.19 openstack error
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Instance failed to spawn : you must call 'aug-init' first to initialize Augeas
+
+out of physical memory
 
 
 
