@@ -93,42 +93,6 @@ yum install MariaDB-server MariaDB-client  MariaDB-devel MariaDB-common MariaDB-
 
 
 
-5.2 route
-------------------------
-
-in window
-
-route add  10.4.0.221 mask 255.255.255.0 10.3.0.221
-
-
-route add 0.0.0.0 mask 0.0.0.0 10.3.0.221
-route add 10.4.0.0 mask 255.255.255.0 10.3.0.221
-
-route delete 0.0.0.0 mask 0.0.0.0  10.77.271.1
-route delete  10.4.0.0 mask 255.255.255.0 10.3.0.221
-route delete  10.4.0.0 mask 255.255.255.0 10.3.0.121
-
-
-in gateway  10.3.0.221
-
-route add -net 10.4.0.0 netmask 255.255.255.0 gw 10.4.0.221
-
-
-route add -net 10.4.0.0 netmask 255.255.255.0 gw 10.4.0.201 dev br0
-route add -net 10.4.0.0 netmask 255.255.255.0 gw 10.3.0.121 dev br0
-
- route add -net 10.4.0.0 netmask 255.255.255.0 gw 10.4.0.221 dev eth3
- route add -net 10.4.0.0 netmask 255.255.255.0 gw 10.4.0.221
- route add -net 192.168.1.0 netmask 255.255.255.0 dev eth0
- route add default gw 192.168.1.1
-
-
-
-
-route add default gw 10.4.0.221
-
-
-
 
 
 
