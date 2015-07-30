@@ -237,6 +237,16 @@ To list only usernames type the following awk command:
 
  .
 
+3.2.8  brige problem
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+vi /etc/udev/rules.d/70-persistent-net.rules
+
+
+3.2.9  http get problem
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+chmod 755 /var/www/html and sub directory
 
 
 
