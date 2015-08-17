@@ -282,6 +282,12 @@ using osirrox
 
 extract ubuntu.tar and jump to lagest directory and will see layer.tar
 
+* tar to docker image import
+::
+
+    cat exampleimage.tgz | docker import - exampleimagelocal:new
+
+.
 
 
 
