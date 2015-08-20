@@ -200,6 +200,7 @@ dracut --add-drivers virtio_blk -f /boot/initramfs-4.0.0-1.el6.elrepo.x86_64.img
 dracut --add-drivers virtio_blk -f /boot/initramfs-3.19.1-1.el6.elrepo.x86_64.img 3.19.1-1.el6.elrepo.x86_64
 
 dracut --add-drivers virtio_blk -f /boot/initramfs-3.10.71-1.el6.elrepo.x86_64.img 3.10.71-1.el6.elrepo.x86_64
+dracut --add-drivers virtio_blk -f /boot/initramfs-4.1.5-1.el6.elrepo.x86_64.img 4.1.5-1.el6.elrepo.x86_64
 
 
 
@@ -398,7 +399,14 @@ source install
     pip install gunicorn
 
 .
+* new yml
+::
 
+    common:
+        search_backend: sqlalchemy
+        sqlalchemy_index_database: sqlite:////tmp/docker-registry.db
+
+.
 
 
 
