@@ -172,6 +172,9 @@ Packaging it (optional)
     yum install ruby
     yum install rubygems
 .
+* install ruby 1.9.3
+http://tecadmin.net/install-ruby-1-9-3-or-multiple-ruby-verson-on-centos-6-3-using-rvm/
+
 
 ::
 
