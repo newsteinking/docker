@@ -128,4 +128,67 @@ sudo /etc/init.d/influxdb start
 
 
 
+7.2 logstash forwarder
+------------------------
+logstash forwarder + logstash + elasticsearch+ kibana
 
+logstash forwarder + logstash +graphite +grafana
+
+graphite = Carbon cache+whisper+graphite web
+
+stagemonitor + graphite+grafana
+
+
+
+
+7.2.2 logstach forwarder
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    git clone git://github.com/elasticsearch/logstash-forwarder.git
+    cd logstash-forwarder
+    go build -o logstash-forwarder
+
+
+.
+*centos go language setup
+in epel
+
+::
+
+    yum install golang
+.
+Packaging it (optional)
+::
+
+    gem install bundler
+    bundle install
+
+.
+* gem
+::
+
+    yum install ruby
+    yum install rubygems
+.
+
+::
+
+    make rpm
+.
+
+
+
+
+
+7.2.3 logstach forwarder
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+7.2.4 sta
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+7.3 stagemonitor
+------------------------
