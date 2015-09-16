@@ -176,6 +176,9 @@ Packaging it (optional)
 http://tecadmin.net/install-ruby-1-9-3-or-multiple-ruby-verson-on-centos-6-3-using-rvm/
 
 
+yum install rpm-build
+
+
 ::
 
     make rpm
@@ -188,10 +191,31 @@ http://tecadmin.net/install-ruby-1-9-3-or-multiple-ruby-verson-on-centos-6-3-usi
 7.2.3 logstach forwarder
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+test
+
 
 7.2.4 sta
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test
 
 
-7.3 stagemonitor
+7.3 ELK
 ------------------------
+
+
+7.3.1 ELK on CentOS7
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+centos 7
+https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-logstash-and-kibana-4-on-centos-7
+
+centos 6
+https://gist.github.com/ashrithr/c5c03950ef631ac63c43
+
+
+7.3.2 scullxbones/docker_grafana_statsd_elk
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+https://github.com/scullxbones/docker_grafana_statsd_elk
+
+

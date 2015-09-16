@@ -856,8 +856,19 @@ export HTTPS_PROXY=http://10.3.0.172:8080
 
 in CentOS 7
 
-HTTP_PROXY=http://10.3.0.172:8080
-HTTPS_PROXY=http://10.3.0.172:8080
+http://hasis053341.blogspot.kr/2014/08/use-docker-search-over-proxy-on-centos-7.html
+vi /usr/lib/systemd/system/docker.service
+
+add EnvironmentFile=-/etc/sysconfig/docker
+
+and vi /etc/sysconfig/docker
+
+add following
+
+HTTP_PROXY='http://10.3.0.172:8080'
+HTTPS_PROXY='http://10.3.0.172:8080'
+http_proxy='http://10.3.0.172:8080'
+https_proxy='http://10.3.0.172:8080'
 
 
 
